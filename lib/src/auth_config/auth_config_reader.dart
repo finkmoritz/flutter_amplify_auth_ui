@@ -1,29 +1,28 @@
+import 'dart:convert';
 import 'dart:io';
 
+import 'package:flutter_amplify_auth_ui/src/util/command_line.dart';
+import 'package:flutter_amplify_auth_ui/src/util/flutter_amplify_auth_ui_exception.dart';
 import 'package:path/path.dart' as path;
-import 'package:yaml/yaml.dart';
 
 import 'auth_config.dart';
 
 class AuthConfigReader {
-  static const String pathToYaml = 'backend/awscloudformation/nested-cloudformation-stack.yml';
-  
   static AuthConfig readAuthConfig({required String amplifyDir}) {
-    var file = File(path.join(amplifyDir, pathToYaml));
-    var config = loadYaml(file.readAsStringSync());
-    var authParams = _findAuthParams(yamlString: config);
-    return AuthConfig(
-      allowUnauthenticatedIdentities: authParams['allowUnauthenticatedIdentities'],
-      requiredAttributes: [authParams['requiredAttributes']]
-    );
+    var file = _findParametersJsonFile(amplifyDir: amplifyDir);
+    return AuthConfig.fromJson(json.decode(file.readAsStringSync()));
   }
-
-  static dynamic _findAuthParams({dynamic yamlString}) {
-    for(dynamic key in yamlString['Resources'].keys) {
-      if(key.startsWith('auth')) {
-        return yamlString['Resources'][key]['Properties']['Parameters'];
+  
+  static File _findParametersJsonFile({required String amplifyDir}) {
+    var authDir = Directory(path.join(amplifyDir, 'backend', 'auth'));
+    for(var file in authDir.listSync(recursive: true)) {
+      if(file.path.endsWith('parameters.json')) {
+        CommandLine.printMessage('Reading Amplify Auth configuration from ${file.path}');
+        return File(file.path);
       }
-    }
-    throw Exception('Could not locate auth parameters inside yaml file!');
+    };
+    throw FlutterAmplifyAuthUiException('''
+    Could not find "parameters.json"!
+    Please check if you have already configured Amplify Auth for this project.''');
   }
 }

@@ -4,6 +4,13 @@ class AuthConfig {
 
   const AuthConfig({required this.allowUnauthenticatedIdentities, required this.requiredAttributes});
 
+  static AuthConfig fromJson(dynamic json) {
+    return AuthConfig(
+      allowUnauthenticatedIdentities: json['allowUnauthenticatedIdentities'],
+      requiredAttributes: List<String>.from(json['requiredAttributes']),
+    );
+  }
+
   @override
   String toString() {
     return '''
