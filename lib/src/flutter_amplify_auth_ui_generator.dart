@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:flutter_amplify_auth_ui/src/auth_config/auth_config_reader.dart';
 import 'package:flutter_amplify_auth_ui/src/util/command_line.dart';
 
 import 'package:path/path.dart' as path;
@@ -11,40 +10,30 @@ class FlutterAmplifyAuthUIGenerator {
   static const String signInPageName = 'sign_in_page';
 
   static void generateClassesFromConfig({
-    required String amplifyDir,
-    required String targetDir
-  }) {
-    var authConfig = AuthConfigReader.readAuthConfig(amplifyDir: amplifyDir);
-    CommandLine.printInfo('Amplify configuration:\n$authConfig');
-
-    _cleanUpTargetDir(targetDir: targetDir);
-    _generateClasses(authConfig: authConfig, targetDir: targetDir);
-
-    CommandLine.printSuccess('Successfully generated classes from Amplify configuration!');
-  }
-
-  static void _generateClasses({
     required AuthConfig authConfig,
     required String targetDir
   }) {
-    CommandLine.printMessage('Generating classes into target directory: "$targetDir"');
+    _createTargetDir(targetDir: targetDir);
+
+    CommandLine.printInfo('Generating classes...');
     _generateSignInPage(targetDir: targetDir);
+    CommandLine.printSuccess('Successfully generated classes from Amplify configuration!');
   }
 
-  static void _cleanUpTargetDir({required String targetDir}) {
-    CommandLine.printMessage('Cleaning up the target directory: "$targetDir"');
+  static void _createTargetDir({required String targetDir}) {
     var dir = Directory(targetDir);
-    if(dir.existsSync()) {
-      dir.deleteSync(recursive: true);
+    if(!dir.existsSync()) {
+      dir.createSync();
     }
-    dir.createSync();
   }
 
   static void _generateSignInPage({required String targetDir}) {
-    var template = _readTemplate(name: signInPageName);
-    var file = File(path.join(targetDir, '$signInPageName.dart'));
+    var filePath = path.join(targetDir, '$signInPageName.dart');
+    var file = File(filePath);
     file.createSync();
+    var template = _readTemplate(name: signInPageName);
     file.writeAsStringSync(template);
+    CommandLine.printInfo('Successfully generated $filePath');
   }
 
   static String _readTemplate({required String name}) {

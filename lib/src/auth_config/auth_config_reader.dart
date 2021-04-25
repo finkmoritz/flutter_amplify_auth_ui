@@ -10,14 +10,16 @@ import 'auth_config.dart';
 class AuthConfigReader {
   static AuthConfig readAuthConfig({required String amplifyDir}) {
     var file = _findParametersJsonFile(amplifyDir: amplifyDir);
-    return AuthConfig.fromJson(json.decode(file.readAsStringSync()));
+    var authConfig = AuthConfig.fromJson(json.decode(file.readAsStringSync()));
+    CommandLine.printInfo('Successfully read Amplify configuration:\n$authConfig');
+    return authConfig;
   }
   
   static File _findParametersJsonFile({required String amplifyDir}) {
     var authDir = Directory(path.join(amplifyDir, 'backend', 'auth'));
     for(var file in authDir.listSync(recursive: true)) {
       if(file.path.endsWith('parameters.json')) {
-        CommandLine.printMessage('Reading Amplify Auth configuration from ${file.path}');
+        CommandLine.printMessage('Reading Amplify Auth configuration from ${file.path}\n');
         return File(file.path);
       }
     };
