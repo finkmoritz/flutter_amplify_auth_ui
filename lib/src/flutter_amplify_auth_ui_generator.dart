@@ -7,31 +7,29 @@ import 'package:path/path.dart' as path;
 import 'auth_config/auth_config.dart';
 
 class FlutterAmplifyAuthUIGenerator {
-  static const String signInPageName = 'sign_in_page';
-
   static void generateClassesFromConfig({
     required AuthConfig authConfig,
     required String targetDir
   }) {
-    _createTargetDir(targetDir: targetDir);
+    Directory(targetDir).createSync();
 
     CommandLine.printInfo('Generating classes...');
-    _generateSignInPage(targetDir: targetDir);
+    _generateClassFromTemplate(targetDir: targetDir, templateName: 'sign_in_page');
     CommandLine.printSuccess('Successfully generated classes from Amplify configuration!');
   }
 
-  static void _createTargetDir({required String targetDir}) {
-    var dir = Directory(targetDir);
-    if(!dir.existsSync()) {
-      dir.createSync();
-    }
-  }
-
-  static void _generateSignInPage({required String targetDir}) {
-    var filePath = path.join(targetDir, '$signInPageName.dart');
+  static void _generateClassFromTemplate({
+    required String targetDir,
+    required String templateName,
+    String Function(String)? modifier,
+  }) {
+    var filePath = path.join(targetDir, '$templateName.dart');
     var file = File(filePath);
     file.createSync();
-    var template = _readTemplate(name: signInPageName);
+    var template = _readTemplate(name: templateName);
+    if(modifier != null) {
+      template = modifier(template);
+    }
     file.writeAsStringSync(template);
     CommandLine.printInfo('Successfully generated $filePath');
   }
