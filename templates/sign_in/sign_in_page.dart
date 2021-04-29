@@ -1,13 +1,16 @@
 import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
+import 'package:amplify_flutter/amplify.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_amplify_demo/pages/auth/password_management/password_reset_page.dart';
-import 'package:flutter_amplify_demo/pages/auth/sign_up/sign_up_page.dart';
-import 'package:flutter_amplify_demo/services/auth_service.dart';
+import '../password_management/password_reset_page.dart';
+import '../sign_up/sign_up_page.dart';
 
 class SignInPage extends StatefulWidget {
-  final Function onSignIn;
+  final void Function(BuildContext) onSignIn;
 
-  const SignInPage({Key key, this.onSignIn}) : super(key: key);
+  const SignInPage({
+    Key? key,
+    this.onSignIn = _defaultOnSignIn,
+  }) : super(key: key);
 
   @override
   _SignInPageState createState() => _SignInPageState();
@@ -18,7 +21,7 @@ class _SignInPageState extends State<SignInPage> {
   final TextEditingController _passwordController = TextEditingController();
 
   @override
-  dispose() {
+  void dispose() {
     _usernameController.dispose();
     _passwordController.dispose();
     super.dispose();
@@ -52,26 +55,26 @@ class _SignInPageState extends State<SignInPage> {
             alignment: MainAxisAlignment.spaceEvenly,
             children: [
               TextButton(
-                child: Text('Sign Up'),
                 onPressed: () {
                   Navigator.push(context,
                     MaterialPageRoute(builder: (context) => SignUpPage()),
                   );
                 },
+                child: Text('Sign Up'),
               ),
               TextButton(
-                child: Text(
-                  'Reset Password',
-                ),
                 onPressed: () {
                   Navigator.push(context,
                     MaterialPageRoute(builder: (context) => PasswordResetPage()),
                   );
                 },
+                child: Text(
+                  'Reset Password',
+                ),
               ),
               ElevatedButton(
-                child: Text('Sign In'),
                 onPressed: _signIn,
+                child: Text('Sign In'),
               ),
             ],
           ),
@@ -80,23 +83,27 @@ class _SignInPageState extends State<SignInPage> {
     );
   }
 
-  _signIn() async {
+  void _signIn() async {
     var username = _usernameController.text.trim();
     var password = _passwordController.text.trim();
     try {
-      SignInResult result = await AuthService.signIn(
+      await Amplify.Auth.signOut();
+      SignInResult result = await Amplify.Auth.signIn(
         username: username,
         password: password,
       );
-      if(result != null && result.isSignedIn) {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text('Successfully signed in'),
-        ));
-        widget.onSignIn();
+      if(result.isSignedIn) {
+        widget.onSignIn(context);
       }
     } on AuthException catch (e) {
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text(e.message)));
     }
   }
+}
+
+void _defaultOnSignIn(BuildContext context) {
+  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+    content: Text('Successfully signed in'),
+  ));
 }

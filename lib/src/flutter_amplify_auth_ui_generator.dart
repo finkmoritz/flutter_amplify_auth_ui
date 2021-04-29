@@ -14,7 +14,9 @@ class FlutterAmplifyAuthUIGenerator {
     Directory(targetDir).createSync();
 
     CommandLine.printInfo('Generating classes...');
-    _generateClassFromTemplate(targetDir: targetDir, templateName: 'sign_in_page');
+    _generateClassFromTemplate(targetDir: targetDir, templateName: 'sign_in/sign_in_page.dart');
+    _generateClassFromTemplate(targetDir: targetDir, templateName: 'sign_up/sign_up_page.dart');
+    _generateClassFromTemplate(targetDir: targetDir, templateName: 'password_management/password_reset_page.dart');
     CommandLine.printSuccess('Successfully generated classes from Amplify configuration!');
   }
 
@@ -23,9 +25,9 @@ class FlutterAmplifyAuthUIGenerator {
     required String templateName,
     String Function(String)? modifier,
   }) {
-    var filePath = path.join(targetDir, '$templateName.dart');
+    var filePath = path.join(targetDir, '$templateName');
     var file = File(filePath);
-    file.createSync();
+    file.createSync(recursive: true);
     var template = _readTemplate(name: templateName);
     if(modifier != null) {
       template = modifier(template);
@@ -35,7 +37,7 @@ class FlutterAmplifyAuthUIGenerator {
   }
 
   static String _readTemplate({required String name}) {
-    var file = File(path.join('./templates' , '$name.template'));
+    var file = File(path.join('./templates' , '$name'));
     return file.readAsStringSync();
   }
 }
