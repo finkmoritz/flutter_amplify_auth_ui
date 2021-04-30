@@ -78,6 +78,19 @@ class _SignInPageState extends State<SignInPage> {
               ),
             ],
           ),
+          /*+++START allowUnauthenticatedIdentities+++*/
+          ButtonBar(
+            alignment: MainAxisAlignment.center,
+            children: [
+              TextButton(
+                onPressed: _signIn,
+                child: Text(
+                  'Sign in as guest',
+                ),
+              ),
+            ],
+          ),
+          /*+++END allowUnauthenticatedIdentities+++*/
         ],
       ),
     );

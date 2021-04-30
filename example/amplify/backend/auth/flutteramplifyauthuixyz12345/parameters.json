@@ -1,6 +1,6 @@
 {
     "identityPoolName": "flutteramplifyauthuixyz12345_identitypool_xyz12345",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "fluttexyz12345",
     "userPoolName": "flutteramplifyauthuixyz12345_userpool_xyz12345",
     "autoVerifiedAttributes": [

@@ -1,5 +1,8 @@
 import 'dart:io';
 
+import 'package:flutter_amplify_auth_ui/src/template.dart';
+import 'package:flutter_amplify_auth_ui/src/template_handlers/impl/sign_in_page_template_handler.dart';
+import 'package:flutter_amplify_auth_ui/src/template_handlers/template_handler.dart';
 import 'package:flutter_amplify_auth_ui/src/util/command_line.dart';
 
 import 'package:path/path.dart' as path;
@@ -14,7 +17,12 @@ class FlutterAmplifyAuthUIGenerator {
     Directory(targetDir).createSync();
 
     CommandLine.printInfo('Generating classes...');
-    _generateClassFromTemplate(targetDir: targetDir, templateName: 'sign_in/sign_in_page.dart');
+    _generateClassFromTemplate(
+      targetDir: targetDir,
+      templateName: 'sign_in/sign_in_page.dart',
+      templateHandler: SignInPageTemplateHandler(),
+      authConfig: authConfig,
+    );
     _generateClassFromTemplate(targetDir: targetDir, templateName: 'sign_up/sign_up_page.dart');
     _generateClassFromTemplate(targetDir: targetDir, templateName: 'password_management/password_reset_page.dart');
     CommandLine.printSuccess('Successfully generated classes from Amplify configuration!');
@@ -23,21 +31,21 @@ class FlutterAmplifyAuthUIGenerator {
   static void _generateClassFromTemplate({
     required String targetDir,
     required String templateName,
-    String Function(String)? modifier,
+    TemplateHandler? templateHandler,
+    AuthConfig? authConfig,
   }) {
-    var filePath = path.join(targetDir, '$templateName');
-    var file = File(filePath);
-    file.createSync(recursive: true);
-    var template = _readTemplate(name: templateName);
-    if(modifier != null) {
-      template = modifier(template);
+    var template = Template(pathToTemplate: path.join('./templates' , '$templateName'));
+    if(templateHandler != null && authConfig != null) {
+      templateHandler.modifyTemplate(
+        template: template,
+        authConfig: authConfig,
+      );
     }
-    file.writeAsStringSync(template);
-    CommandLine.printInfo('Successfully generated $filePath');
-  }
+    template.removeAllIdentifiers();
 
-  static String _readTemplate({required String name}) {
-    var file = File(path.join('./templates' , '$name'));
-    return file.readAsStringSync();
+    var filePath = path.join(targetDir, '$templateName');
+    template.writeToFile(filePath: filePath);
+
+    CommandLine.printInfo('Successfully generated $filePath');
   }
 }
