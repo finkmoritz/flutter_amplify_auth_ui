@@ -25,16 +25,15 @@ class FlutterAmplifyAuthUIGenerator {
     );
     _generateClassFromTemplate(targetDir: targetDir, templateName: 'sign_up/sign_up_page.dart');
     _generateClassFromTemplate(targetDir: targetDir, templateName: 'password_management/password_reset_page.dart');
-    CommandLine.printSuccess('Successfully generated classes from Amplify configuration!');
   }
 
-  static void _generateClassFromTemplate({
+  static Future<void> _generateClassFromTemplate({
     required String targetDir,
     required String templateName,
     TemplateHandler? templateHandler,
     AuthConfig? authConfig,
-  }) {
-    var template = Template(pathToTemplate: path.join('./templates' , '$templateName'));
+  }) async {
+    var template = await Template.byName(templateName: templateName);
     if(templateHandler != null && authConfig != null) {
       templateHandler.modifyTemplate(
         template: template,

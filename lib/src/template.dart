@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'dart:isolate';
+
 class Template {
   static final String delimiterStart = '+++START ';
   static final String delimiterEnd = '+++END ';
@@ -10,9 +12,19 @@ class Template {
 
   late String _content;
 
-  Template({required String pathToTemplate}) {
+  Template._({required String pathToTemplate}) {
     var file = File(pathToTemplate);
     _content = file.readAsStringSync();
+  }
+
+  static Future<Template> byName({required String templateName}) async {
+    var uri = Uri.parse('package:flutter_amplify_auth_ui/templates/$templateName');
+    var resolvedUri = await Isolate.resolvePackageUri(uri);
+    if(resolvedUri == null) {
+      throw Exception('Could not resolve path to $uri');
+    } else {
+      return Template._(pathToTemplate: resolvedUri.toFilePath());
+    }
   }
 
   void writeToFile({required String filePath}) {
