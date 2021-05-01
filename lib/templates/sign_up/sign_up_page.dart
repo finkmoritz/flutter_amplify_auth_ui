@@ -9,7 +9,12 @@ class SignUpPage extends StatefulWidget {
 
 class _SignUpPageState extends State<SignUpPage> {
   final TextEditingController _usernameController = TextEditingController();
+  /*+++START requiredAttributes[email]+++*/
   final TextEditingController _emailController = TextEditingController();
+  /*+++END requiredAttributes[email]+++*/
+  /*+++START requiredAttributes[nickname]+++*/
+  final TextEditingController _nicknameController = TextEditingController();
+  /*+++END requiredAttributes[nickname]+++*/
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmationCodeController = TextEditingController();
 
@@ -23,7 +28,12 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   void dispose() {
     _usernameController.dispose();
+    /*+++START requiredAttributes[email]+++*/
     _emailController.dispose();
+    /*+++END requiredAttributes[email]+++*/
+    /*+++START requiredAttributes[nickname]+++*/
+    _nicknameController.dispose();
+    /*+++END requiredAttributes[nickname]+++*/
     _passwordController.dispose();
     _confirmationCodeController.dispose();
     super.dispose();
@@ -135,6 +145,7 @@ class _SignUpPageState extends State<SignUpPage> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
+        /*+++START requiredAttributes[email]+++*/
         TextFormField(
           controller: _emailController,
           decoration: InputDecoration(
@@ -143,6 +154,7 @@ class _SignUpPageState extends State<SignUpPage> {
               labelText: 'Email address'
           ),
         ),
+        /*+++END requiredAttributes[email]+++*/
         TextFormField(
           controller: _usernameController,
           decoration: InputDecoration(
@@ -160,6 +172,16 @@ class _SignUpPageState extends State<SignUpPage> {
               labelText: 'Password'
           ),
         ),
+        /*+++START requiredAttributes[nickname]+++*/
+        TextFormField(
+          controller: _nicknameController,
+          decoration: InputDecoration(
+              icon: Icon(Icons.mail),
+              hintText: 'Enter your nickname',
+              labelText: 'Nickname'
+          ),
+        ),
+        /*+++END requiredAttributes[nickname]+++*/
       ],
     );
   }
@@ -168,8 +190,6 @@ class _SignUpPageState extends State<SignUpPage> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(
-            'We sent you an email with your confirmation code. Please check your inbox.'),
         TextFormField(
           controller: _usernameController,
           decoration: InputDecoration(
@@ -196,7 +216,14 @@ class _SignUpPageState extends State<SignUpPage> {
         username: _usernameController.text.trim(),
         password: _passwordController.text.trim(),
         options: CognitoSignUpOptions(
-            userAttributes: {'email': _emailController.text.trim()},
+            userAttributes: {
+              /*+++START requiredAttributes[email]+++*/
+              'email': _emailController.text.trim(),
+              /*+++END requiredAttributes[email]+++*/
+              /*+++START requiredAttributes[nickname]+++*/
+              'nickname': _nicknameController.text.trim(),
+              /*+++END requiredAttributes[nickname]+++*/
+            },
         ),
       );
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(

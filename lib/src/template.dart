@@ -34,9 +34,11 @@ class Template {
   }
 
   void remove({required String identifier}) {
-    var startIndex = _content.indexOf('\n', _content.indexOf(delimiterStart + identifier));
-    var endIndex = _content.lastIndexOf('\n', _content.indexOf(delimiterEnd + identifier));
-    _content = _content.substring(0, startIndex) + _content.substring(endIndex);
+    while(_content.contains(delimiterStart + identifier)) {
+      var startIndex = _content.lastIndexOf('\n', _content.indexOf(delimiterStart + identifier));
+      var endIndex = _content.indexOf('\n', _content.indexOf(delimiterEnd + identifier));
+      _content = _content.substring(0, startIndex) + _content.substring(endIndex);
+    }
   }
 
   void removeAllIdentifiers() {

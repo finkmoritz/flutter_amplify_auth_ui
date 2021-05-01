@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter_amplify_auth_ui/src/template.dart';
 import 'package:flutter_amplify_auth_ui/src/template_handlers/impl/sign_in_page_template_handler.dart';
+import 'package:flutter_amplify_auth_ui/src/template_handlers/impl/sign_up_page_template_handler.dart';
 import 'package:flutter_amplify_auth_ui/src/template_handlers/template_handler.dart';
 import 'package:flutter_amplify_auth_ui/src/util/command_line.dart';
 
@@ -23,8 +24,16 @@ class FlutterAmplifyAuthUIGenerator {
       templateHandler: SignInPageTemplateHandler(),
       authConfig: authConfig,
     );
-    _generateClassFromTemplate(targetDir: targetDir, templateName: 'sign_up/sign_up_page.dart');
-    _generateClassFromTemplate(targetDir: targetDir, templateName: 'password_management/password_reset_page.dart');
+    _generateClassFromTemplate(
+      targetDir: targetDir,
+      templateName: 'sign_up/sign_up_page.dart',
+      templateHandler: SignUpPageTemplateHandler(),
+      authConfig: authConfig,
+    );
+    _generateClassFromTemplate(
+      targetDir: targetDir,
+      templateName: 'password_management/password_reset_page.dart',
+    );
   }
 
   static Future<void> _generateClassFromTemplate({
