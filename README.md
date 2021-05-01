@@ -2,7 +2,7 @@
 
 Flutter plugin that automatically generates authentication widgets based on your Amplify CLI configuration.
 
-<img src="https://github.com/finkmoritz/flutter_amplify_auth_ui/raw/main/example/screenshots/preview.png" alt="Preview" height="150px"/>
+<img src="https://github.com/finkmoritz/flutter_amplify_auth_ui/raw/main/example/screenshots/preview.png" alt="Preview" height="500px"/>
 
 ## Install
 
@@ -29,7 +29,7 @@ based on your Amplify configuration:
 flutter packages pub run flutter_amplify_auth_ui:main
 ```
 
-Options:
+**Options**:
 - **--amplifyDir=path/to/amplify/folder** : 
   
   Path to Amplify configuration (usually the `amplify` folder) in your project root (defaults to `./amplify/`).
@@ -53,7 +53,7 @@ import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
 import 'package:amplify_flutter/amplify.dart';
 import 'package:flutter/material.dart';
 
-import 'generated_auth_classes/sign_in/sign_in_page.dart';
+import 'generated_auth_classes/sign_in/sign_in_page.dart'; // <-- Import the generated widget
 
 import 'amplifyconfiguration.dart';
 
