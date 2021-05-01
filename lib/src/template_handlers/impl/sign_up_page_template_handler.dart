@@ -6,6 +6,7 @@ class SignUpPageTemplateHandler extends TemplateHandler {
   static const List<String> configurableRequiredAttributes = [
     'email',
     'nickname',
+    'birthdate',
   ];
 
   @override

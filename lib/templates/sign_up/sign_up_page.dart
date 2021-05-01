@@ -15,6 +15,9 @@ class _SignUpPageState extends State<SignUpPage> {
   /*+++START requiredAttributes[nickname]+++*/
   final TextEditingController _nicknameController = TextEditingController();
   /*+++END requiredAttributes[nickname]+++*/
+  /*+++START requiredAttributes[birthdate]+++*/
+  final TextEditingController _birthdateController = TextEditingController();
+  /*+++END requiredAttributes[birthdate]+++*/
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmationCodeController = TextEditingController();
 
@@ -34,6 +37,9 @@ class _SignUpPageState extends State<SignUpPage> {
     /*+++START requiredAttributes[nickname]+++*/
     _nicknameController.dispose();
     /*+++END requiredAttributes[nickname]+++*/
+    /*+++START requiredAttributes[birthdate]+++*/
+    _birthdateController.dispose();
+    /*+++END requiredAttributes[birthdate]+++*/
     _passwordController.dispose();
     _confirmationCodeController.dispose();
     super.dispose();
@@ -151,7 +157,7 @@ class _SignUpPageState extends State<SignUpPage> {
           decoration: InputDecoration(
               icon: Icon(Icons.mail),
               hintText: 'Enter your email address',
-              labelText: 'Email address'
+              labelText: 'Email address',
           ),
         ),
         /*+++END requiredAttributes[email]+++*/
@@ -160,7 +166,7 @@ class _SignUpPageState extends State<SignUpPage> {
           decoration: InputDecoration(
               icon: Icon(Icons.person),
               hintText: 'Choose your username',
-              labelText: 'Username'
+              labelText: 'Username',
           ),
         ),
         TextFormField(
@@ -169,7 +175,7 @@ class _SignUpPageState extends State<SignUpPage> {
           decoration: InputDecoration(
               icon: Icon(Icons.lock),
               hintText: 'Choose your password',
-              labelText: 'Password'
+              labelText: 'Password',
           ),
         ),
         /*+++START requiredAttributes[nickname]+++*/
@@ -178,10 +184,39 @@ class _SignUpPageState extends State<SignUpPage> {
           decoration: InputDecoration(
               icon: Icon(Icons.person_outline),
               hintText: 'Enter your nickname',
-              labelText: 'Nickname'
+              labelText: 'Nickname',
           ),
         ),
         /*+++END requiredAttributes[nickname]+++*/
+        /*+++START requiredAttributes[birthdate]+++*/
+        TextFormField(
+          controller: _birthdateController,
+          decoration: InputDecoration(
+            icon: Icon(Icons.calendar_today),
+            hintText: 'Enter your date of birth',
+            labelText: 'Date of Birth',
+          ),
+          onTap: () {
+            // Do not display keyboard
+            FocusScope.of(context).requestFocus(FocusNode());
+            showDatePicker(
+              context: context,
+              fieldHintText: 'Enter your date of birth',
+              fieldLabelText: 'Date of Birth',
+              initialDate: DateTime.now(),
+              currentDate: _birthdateController.text.isEmpty
+                ? null
+                : DateTime.parse(_birthdateController.text),
+              firstDate: DateTime(1900),
+              lastDate: DateTime.now(),
+            ).then((date) {
+              if(date != null) {
+                _birthdateController.text = date.toIso8601String().substring(0, 10);
+              }
+            });
+          },
+        ),
+        /*+++END requiredAttributes[birthdate]+++*/
       ],
     );
   }
@@ -223,6 +258,9 @@ class _SignUpPageState extends State<SignUpPage> {
               /*+++START requiredAttributes[nickname]+++*/
               'nickname': _nicknameController.text.trim(),
               /*+++END requiredAttributes[nickname]+++*/
+              /*+++START requiredAttributes[birthdate]+++*/
+              'birthdate': DateTime.parse(_birthdateController.text),
+              /*+++END requiredAttributes[birthdate]+++*/
             },
         ),
       );

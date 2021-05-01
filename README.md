@@ -4,6 +4,21 @@ Flutter plugin that automatically generates authentication widgets based on your
 
 <img src="https://github.com/finkmoritz/flutter_amplify_auth_ui/raw/main/example/screenshots/preview.png" alt="Preview" height="500px"/>
 
+## Features
+
+### SignInPage
+- Sign in via username and password
+- Sign in as guest (if configured)
+
+### SignUpPage
+- Sign up via username, password and email address (plus confirmation code)
+- Additional required attributes (if configured):
+    - Nickname
+    - Date of Birth
+
+### PasswordResetPage
+- Reset password via username and confirmation code
+
 ## Install
 
 To use this plugin, add `flutter_amplify_auth_ui` as a `dev_dependency` in your pubspec.yaml:
