@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter_amplify_auth_ui/src/template.dart';
+import 'package:flutter_amplify_auth_ui/src/template_handlers/impl/password_reset_page_template_handler.dart';
 import 'package:flutter_amplify_auth_ui/src/template_handlers/impl/sign_in_page_template_handler.dart';
 import 'package:flutter_amplify_auth_ui/src/template_handlers/impl/sign_up_page_template_handler.dart';
 import 'package:flutter_amplify_auth_ui/src/template_handlers/template_handler.dart';
@@ -33,6 +34,8 @@ class FlutterAmplifyAuthUIGenerator {
     _generateClassFromTemplate(
       targetDir: targetDir,
       templateName: 'password_management/password_reset_page.dart',
+      templateHandler: PasswordResetPageTemplateHandler(),
+      authConfig: authConfig,
     );
   }
 

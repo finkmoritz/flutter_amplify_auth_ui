@@ -8,7 +8,9 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+  /*+++START usernameAttributes[username]+++*/
   final TextEditingController _usernameController = TextEditingController();
+  /*+++END usernameAttributes[username]+++*/
   /*+++START requiredAttributes[email]+++*/
   final TextEditingController _emailController = TextEditingController();
   /*+++END requiredAttributes[email]+++*/
@@ -30,7 +32,9 @@ class _SignUpPageState extends State<SignUpPage> {
 
   @override
   void dispose() {
+    /*+++START usernameAttributes[username]+++*/
     _usernameController.dispose();
+    /*+++END usernameAttributes[username]+++*/
     /*+++START requiredAttributes[email]+++*/
     _emailController.dispose();
     /*+++END requiredAttributes[email]+++*/
@@ -161,6 +165,7 @@ class _SignUpPageState extends State<SignUpPage> {
           ),
         ),
         /*+++END requiredAttributes[email]+++*/
+        /*+++START usernameAttributes[username]+++*/
         TextFormField(
           controller: _usernameController,
           decoration: InputDecoration(
@@ -169,6 +174,7 @@ class _SignUpPageState extends State<SignUpPage> {
               labelText: 'Username',
           ),
         ),
+        /*+++END usernameAttributes[username]+++*/
         TextFormField(
           controller: _passwordController,
           obscureText: true,
@@ -225,6 +231,7 @@ class _SignUpPageState extends State<SignUpPage> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
+        /*+++START usernameAttributes[username]+++*/
         TextFormField(
           controller: _usernameController,
           decoration: InputDecoration(
@@ -233,6 +240,17 @@ class _SignUpPageState extends State<SignUpPage> {
               labelText: 'Username'
           ),
         ),
+        /*+++END usernameAttributes[username]+++*/
+        /*+++START usernameAttributes[email]+++*/
+        TextFormField(
+          controller: _emailController,
+          decoration: InputDecoration(
+            icon: Icon(Icons.mail),
+            hintText: 'Enter your email address',
+            labelText: 'Email address',
+          ),
+        ),
+        /*+++END usernameAttributes[email]+++*/
         TextFormField(
           controller: _confirmationCodeController,
           decoration: InputDecoration(
@@ -248,7 +266,12 @@ class _SignUpPageState extends State<SignUpPage> {
   void _signUp() async {
     try {
       await Amplify.Auth.signUp(
+        /*+++START usernameAttributes[username]+++*/
         username: _usernameController.text.trim(),
+        /*+++END usernameAttributes[username]+++*/
+        /*+++START usernameAttributes[username]+++
+        username: _emailController.text.trim(),
+        +++END usernameAttributes[username]+++*/
         password: _passwordController.text.trim(),
         options: CognitoSignUpOptions(
             userAttributes: {
@@ -279,7 +302,12 @@ class _SignUpPageState extends State<SignUpPage> {
   void _resend() async {
     try {
       await Amplify.Auth.resendSignUpCode(
+        /*+++START usernameAttributes[username]+++*/
         username: _usernameController.text.trim(),
+        /*+++END usernameAttributes[username]+++*/
+        /*+++START usernameAttributes[username]+++
+        username: _emailController.text.trim(),
+        +++END usernameAttributes[username]+++*/
       );
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         content: Text('Sent confirmation code'),
@@ -293,7 +321,12 @@ class _SignUpPageState extends State<SignUpPage> {
   void _confirm() async {
     try {
       SignUpResult result = await Amplify.Auth.confirmSignUp(
+        /*+++START usernameAttributes[username]+++*/
         username: _usernameController.text.trim(),
+        /*+++END usernameAttributes[username]+++*/
+        /*+++START usernameAttributes[username]+++
+        username: _emailController.text.trim(),
+        +++END usernameAttributes[username]+++*/
         confirmationCode: _confirmationCodeController.text.trim(),
       );
       if (result.isSignUpComplete) {

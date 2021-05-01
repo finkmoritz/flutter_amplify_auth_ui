@@ -8,7 +8,12 @@ class PasswordResetPage extends StatefulWidget {
 }
 
 class _PasswordResetPageState extends State<PasswordResetPage> {
+  /*+++START usernameAttributes[username]+++*/
   final TextEditingController _usernameController = TextEditingController();
+  /*+++END usernameAttributes[username]+++*/
+  /*+++START usernameAttributes[email]+++*/
+  final TextEditingController _emailController = TextEditingController();
+  /*+++END usernameAttributes[email]+++*/
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmationCodeController = TextEditingController();
 
@@ -21,7 +26,12 @@ class _PasswordResetPageState extends State<PasswordResetPage> {
 
   @override
   void dispose() {
+    /*+++START usernameAttributes[username]+++*/
     _usernameController.dispose();
+    /*+++END usernameAttributes[username]+++*/
+    /*+++START usernameAttributes[email]+++*/
+    _emailController.dispose();
+    /*+++END usernameAttributes[email]+++*/
     _passwordController.dispose();
     _confirmationCodeController.dispose();
     super.dispose();
@@ -129,6 +139,7 @@ class _PasswordResetPageState extends State<PasswordResetPage> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
+        /*+++START usernameAttributes[username]+++*/
         TextFormField(
           controller: _usernameController,
           decoration: InputDecoration(
@@ -137,6 +148,17 @@ class _PasswordResetPageState extends State<PasswordResetPage> {
               labelText: 'Username'
           ),
         ),
+        /*+++END usernameAttributes[username]+++*/
+        /*+++START usernameAttributes[email]+++*/
+        TextFormField(
+          controller: _emailController,
+          decoration: InputDecoration(
+              icon: Icon(Icons.mail),
+              hintText: 'Enter your email address',
+              labelText: 'Email address'
+          ),
+        ),
+        /*+++END usernameAttributes[email]+++*/
       ],
     );
   }
@@ -147,6 +169,7 @@ class _PasswordResetPageState extends State<PasswordResetPage> {
       children: [
         Text(
             'We sent you an email with your confirmation code. Please check your inbox.'),
+        /*+++START usernameAttributes[username]+++*/
         TextFormField(
           controller: _usernameController,
           decoration: InputDecoration(
@@ -155,6 +178,17 @@ class _PasswordResetPageState extends State<PasswordResetPage> {
               labelText: 'Username'
           ),
         ),
+        /*+++END usernameAttributes[username]+++*/
+        /*+++START usernameAttributes[email]+++*/
+        TextFormField(
+          controller: _emailController,
+          decoration: InputDecoration(
+              icon: Icon(Icons.mail),
+              hintText: 'Enter your email address',
+              labelText: 'Email address'
+          ),
+        ),
+        /*+++END usernameAttributes[email]+++*/
         TextFormField(
           controller: _passwordController,
           obscureText: true,
@@ -179,7 +213,12 @@ class _PasswordResetPageState extends State<PasswordResetPage> {
   void _resetPassword() async {
     try {
       await Amplify.Auth.resetPassword(
+        /*+++START usernameAttributes[username]+++*/
         username: _usernameController.text.trim(),
+        /*+++END usernameAttributes[username]+++*/
+        /*+++START usernameAttributes[email]+++
+        username: _emailController.text.trim(),
+        +++END usernameAttributes[email]+++*/
       );
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         content: Text('Successfully sent confirmation code'),
@@ -196,7 +235,12 @@ class _PasswordResetPageState extends State<PasswordResetPage> {
   void _confirm() async {
     try {
       await Amplify.Auth.confirmPassword(
+        /*+++START usernameAttributes[username]+++*/
         username: _usernameController.text.trim(),
+        /*+++END usernameAttributes[username]+++*/
+        /*+++START usernameAttributes[email]+++
+        username: _emailController.text.trim(),
+        +++END usernameAttributes[email]+++*/
         newPassword: _passwordController.text.trim(),
         confirmationCode: _confirmationCodeController.text.trim(),
       );

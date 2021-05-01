@@ -7,7 +7,9 @@ Flutter plugin that automatically generates authentication widgets based on your
 ## Features
 
 ### SignInPage
-- Sign in via username and password
+- Sign in via password and
+  - username or
+  - email
 - Sign in as guest (if configured)
 
 ### SignUpPage
@@ -17,7 +19,9 @@ Flutter plugin that automatically generates authentication widgets based on your
     - Date of Birth
 
 ### PasswordResetPage
-- Reset password via username and confirmation code
+- Reset password via confirmation code and
+    - username or
+    - email
 
 ## Install
 

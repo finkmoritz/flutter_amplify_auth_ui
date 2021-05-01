@@ -17,12 +17,22 @@ class SignInPage extends StatefulWidget {
 }
 
 class _SignInPageState extends State<SignInPage> {
+  /*+++START usernameAttributes[username]+++*/
   final TextEditingController _usernameController = TextEditingController();
+  /*+++END usernameAttributes[username]+++*/
+  /*+++START usernameAttributes[email]+++*/
+  final TextEditingController _emailController = TextEditingController();
+  /*+++END usernameAttributes[email]+++*/
   final TextEditingController _passwordController = TextEditingController();
 
   @override
   void dispose() {
+    /*+++START usernameAttributes[username]+++*/
     _usernameController.dispose();
+    /*+++END usernameAttributes[username]+++*/
+    /*+++START usernameAttributes[email]+++*/
+    _emailController.dispose();
+    /*+++END usernameAttributes[email]+++*/
     _passwordController.dispose();
     super.dispose();
   }
@@ -34,6 +44,7 @@ class _SignInPageState extends State<SignInPage> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          /*+++START usernameAttributes[username]+++*/
           TextFormField(
             controller: _usernameController,
             decoration: InputDecoration(
@@ -42,6 +53,17 @@ class _SignInPageState extends State<SignInPage> {
                 labelText: 'Username'
             ),
           ),
+          /*+++END usernameAttributes[username]+++*/
+          /*+++START usernameAttributes[email]+++*/
+          TextFormField(
+            controller: _emailController,
+            decoration: InputDecoration(
+                icon: Icon(Icons.mail),
+                hintText: 'Enter your email address',
+                labelText: 'Email address'
+            ),
+          ),
+          /*+++END usernameAttributes[email]+++*/
           TextFormField(
             controller: _passwordController,
             obscureText: true,
@@ -95,13 +117,16 @@ class _SignInPageState extends State<SignInPage> {
   }
 
   void _signIn() async {
-    var username = _usernameController.text.trim();
-    var password = _passwordController.text.trim();
     try {
       await Amplify.Auth.signOut();
       SignInResult result = await Amplify.Auth.signIn(
-        username: username,
-        password: password,
+        /*+++START usernameAttributes[username]+++*/
+        username: _usernameController.text.trim(),
+        /*+++END usernameAttributes[username]+++*/
+        /*+++START usernameAttributes[email]+++
+        username: _emailController.text.trim(),
+        +++END usernameAttributes[email]+++*/
+        password: _passwordController.text.trim(),
       );
       if(result.isSignedIn) {
         widget.onSignIn(context);
