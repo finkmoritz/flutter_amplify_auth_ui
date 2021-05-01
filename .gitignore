@@ -2,6 +2,7 @@
 example/target
 
 # IDE
+*.iml
 .idea
 
 # Files and directories created by pub
