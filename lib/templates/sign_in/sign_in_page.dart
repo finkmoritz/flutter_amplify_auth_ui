@@ -83,7 +83,7 @@ class _SignInPageState extends State<SignInPage> {
             alignment: MainAxisAlignment.center,
             children: [
               TextButton(
-                onPressed: _signIn,
+                onPressed: () => widget.onSignIn(context),
                 child: Text(
                   'Sign in as guest',
                 ),

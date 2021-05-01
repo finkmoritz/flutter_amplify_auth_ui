@@ -17,7 +17,7 @@ class FlutterAmplifyAuthUIGenerator {
   }) {
     Directory(targetDir).createSync();
 
-    CommandLine.printInfo('Generating classes...');
+    CommandLine.printMessage('Generating classes...');
     _generateClassFromTemplate(
       targetDir: targetDir,
       templateName: 'sign_in/sign_in_page.dart',
