@@ -269,9 +269,9 @@ class _SignUpPageState extends State<SignUpPage> {
         /*+++START usernameAttributes[username]+++*/
         username: _usernameController.text.trim(),
         /*+++END usernameAttributes[username]+++*/
-        /*+++START usernameAttributes[username]+++
+        /*+++START usernameAttributes[email]+++
         username: _emailController.text.trim(),
-        +++END usernameAttributes[username]+++*/
+        +++END usernameAttributes[email]+++*/
         password: _passwordController.text.trim(),
         options: CognitoSignUpOptions(
             userAttributes: {
@@ -305,9 +305,9 @@ class _SignUpPageState extends State<SignUpPage> {
         /*+++START usernameAttributes[username]+++*/
         username: _usernameController.text.trim(),
         /*+++END usernameAttributes[username]+++*/
-        /*+++START usernameAttributes[username]+++
+        /*+++START usernameAttributes[email]+++
         username: _emailController.text.trim(),
-        +++END usernameAttributes[username]+++*/
+        +++END usernameAttributes[email]+++*/
       );
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         content: Text('Sent confirmation code'),
@@ -324,9 +324,9 @@ class _SignUpPageState extends State<SignUpPage> {
         /*+++START usernameAttributes[username]+++*/
         username: _usernameController.text.trim(),
         /*+++END usernameAttributes[username]+++*/
-        /*+++START usernameAttributes[username]+++
+        /*+++START usernameAttributes[email]+++
         username: _emailController.text.trim(),
-        +++END usernameAttributes[username]+++*/
+        +++END usernameAttributes[email]+++*/
         confirmationCode: _confirmationCodeController.text.trim(),
       );
       if (result.isSignUpComplete) {
