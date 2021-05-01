@@ -176,7 +176,7 @@ class _SignUpPageState extends State<SignUpPage> {
         TextFormField(
           controller: _nicknameController,
           decoration: InputDecoration(
-              icon: Icon(Icons.mail),
+              icon: Icon(Icons.person_outline),
               hintText: 'Enter your nickname',
               labelText: 'Nickname'
           ),

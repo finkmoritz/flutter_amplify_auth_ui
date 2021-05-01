@@ -65,9 +65,7 @@ class _SignInPageState extends State<SignInPage> {
               /*+++START allowUnauthenticatedIdentities+++*/
               TextButton(
                 onPressed: () => widget.onSignIn(context),
-                child: Text(
-                  'Sign in as guest',
-                ),
+                child: Text('Sign in as guest'),
               ),
               /*+++END allowUnauthenticatedIdentities+++*/
               ElevatedButton(
