@@ -52,9 +52,9 @@ class _SignInPageState extends State<SignInPage> {
             ),
           ),
           ButtonBar(
-            alignment: MainAxisAlignment.spaceEvenly,
+            alignment: MainAxisAlignment.center,
             children: [
-              TextButton(
+              OutlinedButton(
                 onPressed: () {
                   Navigator.push(context,
                     MaterialPageRoute(builder: (context) => SignUpPage()),
@@ -62,6 +62,23 @@ class _SignInPageState extends State<SignInPage> {
                 },
                 child: Text('Sign Up'),
               ),
+              /*+++START allowUnauthenticatedIdentities+++*/
+              TextButton(
+                onPressed: () => widget.onSignIn(context),
+                child: Text(
+                  'Sign in as guest',
+                ),
+              ),
+              /*+++END allowUnauthenticatedIdentities+++*/
+              ElevatedButton(
+                onPressed: _signIn,
+                child: Text('Sign In'),
+              ),
+            ],
+          ),
+          ButtonBar(
+            alignment: MainAxisAlignment.center,
+            children: [
               TextButton(
                 onPressed: () {
                   Navigator.push(context,
@@ -69,28 +86,11 @@ class _SignInPageState extends State<SignInPage> {
                   );
                 },
                 child: Text(
-                  'Reset Password',
-                ),
-              ),
-              ElevatedButton(
-                onPressed: _signIn,
-                child: Text('Sign In'),
-              ),
-            ],
-          ),
-          /*+++START allowUnauthenticatedIdentities+++*/
-          ButtonBar(
-            alignment: MainAxisAlignment.center,
-            children: [
-              TextButton(
-                onPressed: () => widget.onSignIn(context),
-                child: Text(
-                  'Sign in as guest',
+                  'Forgot Password?',
                 ),
               ),
             ],
           ),
-          /*+++END allowUnauthenticatedIdentities+++*/
         ],
       ),
     );
