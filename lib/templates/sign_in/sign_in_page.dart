@@ -117,21 +117,31 @@ class _SignInPageState extends State<SignInPage> {
               /*+++START authProvidersUserPool[Facebook]+++*/
               ElevatedButton(
                 onPressed: () => _signInWithWebUI(provider: AuthProvider.facebook),
-                style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Color.fromRGBO(66, 103, 178, 1.0))),
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Color.fromRGBO(66, 103, 178, 1.0)),
+                  elevation: MaterialStateProperty.all(4.0),
+                ),
                 child: Text('Sign in with Facebook'),
               ),
               /*+++END authProvidersUserPool[Facebook]+++*/
               /*+++START authProvidersUserPool[Google]+++*/
               ElevatedButton(
                 onPressed: () => _signInWithWebUI(provider: AuthProvider.google),
-                style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.white)),
-                child: Text('Sign in with Google', style: TextStyle(color: Colors.blueGrey),),
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.white),
+                  foregroundColor: MaterialStateProperty.all(Colors.blueGrey),
+                  elevation: MaterialStateProperty.all(4.0),
+                ),
+                child: Text('Sign in with Google'),
               ),
               /*+++END authProvidersUserPool[Google]+++*/
               /*+++START authProvidersUserPool[LoginWithAmazon]+++*/
               ElevatedButton(
                 onPressed: () => _signInWithWebUI(provider: AuthProvider.amazon),
-                style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Color.fromRGBO(255, 153, 0, 1.0))),
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Color.fromRGBO(255, 153, 0, 1.0)),
+                  elevation: MaterialStateProperty.all(4.0),
+                ),
                 child: Text('Sign in with Amazon'),
               ),
               /*+++END authProvidersUserPool[LoginWithAmazon]+++*/
