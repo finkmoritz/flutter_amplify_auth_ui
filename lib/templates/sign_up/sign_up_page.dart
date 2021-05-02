@@ -57,7 +57,7 @@ class _SignUpPageState extends State<SignUpPage> {
       ),
       body: Center(
         child: Container(
-          constraints: BoxConstraints(maxWidth: 400, maxHeight: 700),
+          constraints: const BoxConstraints(maxWidth: 400, maxHeight: 700),
           child: Stepper(
             currentStep: _stepIndex,
             onStepCancel: () {

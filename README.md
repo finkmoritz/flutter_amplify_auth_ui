@@ -97,11 +97,10 @@ class _MyAppState extends State<MyApp> {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('flutter_amplify_auth_ui Demo'),
-        ),
-        body: SignInPage(), // <-- Include the generated widget in your widget tree
+      home: SignInPage( // <-- Include the generated widget in your widget tree
+        onSignIn: (context) {
+          //TODO Define what to do after sign in
+        },
       ),
     );
   }

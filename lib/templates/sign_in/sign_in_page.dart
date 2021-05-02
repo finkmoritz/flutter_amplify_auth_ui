@@ -39,115 +39,125 @@ class _SignInPageState extends State<SignInPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(32.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          /*+++START usernameAttributes[username]+++*/
-          TextFormField(
-            controller: _usernameController,
-            decoration: InputDecoration(
-                icon: Icon(Icons.person),
-                hintText: 'Enter your username',
-                labelText: 'Username'
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Sign In'),
+      ),
+      body: Center(
+        child: Container(
+          constraints: const BoxConstraints(maxWidth: 400, maxHeight: 700),
+          child: Padding(
+            padding: const EdgeInsets.all(32.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                /*+++START usernameAttributes[username]+++*/
+                TextFormField(
+                  controller: _usernameController,
+                  decoration: InputDecoration(
+                      icon: Icon(Icons.person),
+                      hintText: 'Enter your username',
+                      labelText: 'Username'
+                  ),
+                ),
+                /*+++END usernameAttributes[username]+++*/
+                /*+++START usernameAttributes[email]+++*/
+                TextFormField(
+                  controller: _emailController,
+                  decoration: InputDecoration(
+                      icon: Icon(Icons.mail),
+                      hintText: 'Enter your email address',
+                      labelText: 'Email address'
+                  ),
+                ),
+                /*+++END usernameAttributes[email]+++*/
+                TextFormField(
+                  controller: _passwordController,
+                  obscureText: true,
+                  decoration: InputDecoration(
+                      icon: Icon(Icons.lock),
+                      hintText: 'Enter your password',
+                      labelText: 'Password'
+                  ),
+                ),
+                ButtonBar(
+                  alignment: MainAxisAlignment.center,
+                  children: [
+                    OutlinedButton(
+                      onPressed: () {
+                        Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => SignUpPage()),
+                        );
+                      },
+                      child: Text('Sign Up'),
+                    ),
+                    /*+++START allowUnauthenticatedIdentities+++*/
+                    TextButton(
+                      onPressed: () => widget.onSignIn(context),
+                      child: Text('Sign in as guest'),
+                    ),
+                    /*+++END allowUnauthenticatedIdentities+++*/
+                    ElevatedButton(
+                      onPressed: _signIn,
+                      child: Text('Sign In'),
+                    ),
+                  ],
+                ),
+                ButtonBar(
+                  alignment: MainAxisAlignment.center,
+                  children: [
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => PasswordResetPage()),
+                        );
+                      },
+                      child: Text(
+                        'Forgot Password?',
+                      ),
+                    ),
+                  ],
+                ),
+                ButtonBar(
+                  alignment: MainAxisAlignment.center,
+                  children: [
+                    /*+++START authProvidersUserPool[Facebook]+++*/
+                    ElevatedButton(
+                      onPressed: () => _signInWithWebUI(provider: AuthProvider.facebook),
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(Color.fromRGBO(66, 103, 178, 1.0)),
+                        elevation: MaterialStateProperty.all(4.0),
+                      ),
+                      child: Text('Sign in with Facebook'),
+                    ),
+                    /*+++END authProvidersUserPool[Facebook]+++*/
+                    /*+++START authProvidersUserPool[Google]+++*/
+                    ElevatedButton(
+                      onPressed: () => _signInWithWebUI(provider: AuthProvider.google),
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(Colors.white),
+                        foregroundColor: MaterialStateProperty.all(Colors.blueGrey),
+                        elevation: MaterialStateProperty.all(4.0),
+                      ),
+                      child: Text('Sign in with Google'),
+                    ),
+                    /*+++END authProvidersUserPool[Google]+++*/
+                    /*+++START authProvidersUserPool[LoginWithAmazon]+++*/
+                    ElevatedButton(
+                      onPressed: () => _signInWithWebUI(provider: AuthProvider.amazon),
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(Color.fromRGBO(255, 153, 0, 1.0)),
+                        elevation: MaterialStateProperty.all(4.0),
+                      ),
+                      child: Text('Sign in with Amazon'),
+                    ),
+                    /*+++END authProvidersUserPool[LoginWithAmazon]+++*/
+                  ],
+                ),
+              ],
             ),
           ),
-          /*+++END usernameAttributes[username]+++*/
-          /*+++START usernameAttributes[email]+++*/
-          TextFormField(
-            controller: _emailController,
-            decoration: InputDecoration(
-                icon: Icon(Icons.mail),
-                hintText: 'Enter your email address',
-                labelText: 'Email address'
-            ),
-          ),
-          /*+++END usernameAttributes[email]+++*/
-          TextFormField(
-            controller: _passwordController,
-            obscureText: true,
-            decoration: InputDecoration(
-                icon: Icon(Icons.lock),
-                hintText: 'Enter your password',
-                labelText: 'Password'
-            ),
-          ),
-          ButtonBar(
-            alignment: MainAxisAlignment.center,
-            children: [
-              OutlinedButton(
-                onPressed: () {
-                  Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => SignUpPage()),
-                  );
-                },
-                child: Text('Sign Up'),
-              ),
-              /*+++START allowUnauthenticatedIdentities+++*/
-              TextButton(
-                onPressed: () => widget.onSignIn(context),
-                child: Text('Sign in as guest'),
-              ),
-              /*+++END allowUnauthenticatedIdentities+++*/
-              ElevatedButton(
-                onPressed: _signIn,
-                child: Text('Sign In'),
-              ),
-            ],
-          ),
-          ButtonBar(
-            alignment: MainAxisAlignment.center,
-            children: [
-              TextButton(
-                onPressed: () {
-                  Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => PasswordResetPage()),
-                  );
-                },
-                child: Text(
-                  'Forgot Password?',
-                ),
-              ),
-            ],
-          ),
-          ButtonBar(
-            alignment: MainAxisAlignment.center,
-            children: [
-              /*+++START authProvidersUserPool[Facebook]+++*/
-              ElevatedButton(
-                onPressed: () => _signInWithWebUI(provider: AuthProvider.facebook),
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Color.fromRGBO(66, 103, 178, 1.0)),
-                  elevation: MaterialStateProperty.all(4.0),
-                ),
-                child: Text('Sign in with Facebook'),
-              ),
-              /*+++END authProvidersUserPool[Facebook]+++*/
-              /*+++START authProvidersUserPool[Google]+++*/
-              ElevatedButton(
-                onPressed: () => _signInWithWebUI(provider: AuthProvider.google),
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.white),
-                  foregroundColor: MaterialStateProperty.all(Colors.blueGrey),
-                  elevation: MaterialStateProperty.all(4.0),
-                ),
-                child: Text('Sign in with Google'),
-              ),
-              /*+++END authProvidersUserPool[Google]+++*/
-              /*+++START authProvidersUserPool[LoginWithAmazon]+++*/
-              ElevatedButton(
-                onPressed: () => _signInWithWebUI(provider: AuthProvider.amazon),
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Color.fromRGBO(255, 153, 0, 1.0)),
-                  elevation: MaterialStateProperty.all(4.0),
-                ),
-                child: Text('Sign in with Amazon'),
-              ),
-              /*+++END authProvidersUserPool[LoginWithAmazon]+++*/
-            ],
-          ),
-        ],
+        ),
       ),
     );
   }
