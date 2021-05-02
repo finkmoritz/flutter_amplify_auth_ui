@@ -11,6 +11,10 @@ Flutter plugin that automatically generates authentication widget templates base
   - username or
   - email
 - Sign in as guest (if configured)
+- Sign in with social providers:
+    - Facebook
+    - Google
+    - Amazon
 
 ### SignUpPage
 - Sign up via username, password and email address (plus confirmation code)
