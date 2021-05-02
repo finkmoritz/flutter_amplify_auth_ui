@@ -111,6 +111,32 @@ class _SignInPageState extends State<SignInPage> {
               ),
             ],
           ),
+          ButtonBar(
+            alignment: MainAxisAlignment.center,
+            children: [
+              /*+++START authProvidersUserPool[Facebook]+++*/
+              ElevatedButton(
+                onPressed: () => _signInWithWebUI(provider: AuthProvider.facebook),
+                style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Color.fromRGBO(66, 103, 178, 1.0))),
+                child: Text('Sign in with Facebook'),
+              ),
+              /*+++END authProvidersUserPool[Facebook]+++*/
+              /*+++START authProvidersUserPool[Google]+++*/
+              ElevatedButton(
+                onPressed: () => _signInWithWebUI(provider: AuthProvider.google),
+                style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.white)),
+                child: Text('Sign in with Google', style: TextStyle(color: Colors.blueGrey),),
+              ),
+              /*+++END authProvidersUserPool[Google]+++*/
+              /*+++START authProvidersUserPool[LoginWithAmazon]+++*/
+              ElevatedButton(
+                onPressed: () => _signInWithWebUI(provider: AuthProvider.amazon),
+                style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Color.fromRGBO(255, 153, 0, 1.0))),
+                child: Text('Sign in with Amazon'),
+              ),
+              /*+++END authProvidersUserPool[LoginWithAmazon]+++*/
+            ],
+          ),
         ],
       ),
     );
@@ -136,6 +162,20 @@ class _SignInPageState extends State<SignInPage> {
           .showSnackBar(SnackBar(content: Text(e.message)));
     }
   }
+
+  /*+++START authProvidersUserPool[any]+++*/
+  void _signInWithWebUI({AuthProvider? provider}) async {
+    try {
+      SignInResult result = await Amplify.Auth.signInWithWebUI(provider: provider);
+      if(result.isSignedIn) {
+        widget.onSignIn(context);
+      }
+    } on AuthException catch (e) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text(e.message)));
+    }
+  }
+  /*+++END authProvidersUserPool[any]+++*/
 }
 
 void _defaultOnSignIn(BuildContext context) {

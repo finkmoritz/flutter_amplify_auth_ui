@@ -2,11 +2,13 @@ class AuthConfig {
   final bool allowUnauthenticatedIdentities;
   final List<String> requiredAttributes;
   final List<String> usernameAttributes;
+  final List<String> authProvidersUserPool;
 
   const AuthConfig({
     required this.allowUnauthenticatedIdentities,
     required this.requiredAttributes,
     required this.usernameAttributes,
+    required this.authProvidersUserPool,
   });
 
   static AuthConfig fromJson(dynamic json) {
@@ -14,6 +16,7 @@ class AuthConfig {
       allowUnauthenticatedIdentities: json['allowUnauthenticatedIdentities'],
       requiredAttributes: _getAsList(json,'requiredAttributes'),
       usernameAttributes: _getAsList(json,'usernameAttributes'),
+      authProvidersUserPool: _getAsList(json, 'authProvidersUserPool'),
     );
   }
 
@@ -27,6 +30,7 @@ class AuthConfig {
     "allowUnauthenticatedIdentities": $allowUnauthenticatedIdentities,
     "requiredAttributes": $requiredAttributes,
     "usernameAttributes": $usernameAttributes,
+    "authProvidersUserPool": $authProvidersUserPool,
     ''';
   }
 }

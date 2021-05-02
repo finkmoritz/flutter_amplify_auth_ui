@@ -6,11 +6,17 @@ class SignInPageTemplateHandler extends TemplateHandler {
   static const List<String> configurableUsernameAttributes = [
     'email',
   ];
+  static const List<String> configurableAuthProviders = [
+    'Facebook',
+    'Google',
+    'LoginWithAmazon',
+  ];
 
   @override
   void modifyTemplate({required Template template, required AuthConfig authConfig}) {
     _handleUsernameAttributes(template: template, authConfig: authConfig);
     _handleGuestSignIn(template: template, authConfig: authConfig);
+    _handleSignInWithWebUI(template: template, authConfig: authConfig);
   }
 
   void _handleUsernameAttributes({required Template template, required AuthConfig authConfig}) {
@@ -31,6 +37,17 @@ class SignInPageTemplateHandler extends TemplateHandler {
   void _handleGuestSignIn({required Template template, required AuthConfig authConfig}) {
     if(!authConfig.allowUnauthenticatedIdentities) {
       template.remove(identifier: 'allowUnauthenticatedIdentities');
+    }
+  }
+
+  void _handleSignInWithWebUI({required Template template, required AuthConfig authConfig}) {
+    configurableAuthProviders.forEach((provider) {
+      if(!authConfig.authProvidersUserPool.contains(provider)) {
+        template.remove(identifier: 'authProvidersUserPool[$provider]');
+      }
+    });
+    if(authConfig.authProvidersUserPool.isEmpty) {
+      template.remove(identifier: 'authProvidersUserPool[any]');
     }
   }
 }
