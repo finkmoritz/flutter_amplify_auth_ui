@@ -2,7 +2,7 @@
 
 Flutter plugin that automatically generates authentication widgets based on your Amplify CLI configuration.
 
-<img src="https://github.com/finkmoritz/flutter_amplify_auth_ui/raw/main/example/screenshots/preview.png" alt="Preview" height="500px"/>
+<img src="https://github.com/finkmoritz/flutter_amplify_auth_ui/raw/main/example/screenshots/SignInPage_light.png" alt="Preview" height="500px"/>
 
 ## Features
 
@@ -120,3 +120,32 @@ class _MyAppState extends State<MyApp> {
   }
 }
 ```
+
+## Showroom
+
+The following images display the outcome of a particular Amplify configuration.
+
+### SignInPage
+
+<p float="left">
+    <img src="https://github.com/finkmoritz/flutter_amplify_auth_ui/raw/main/example/screenshots/SignInPage_light.png" alt="Preview" height="500px"/>
+    <img src="https://github.com/finkmoritz/flutter_amplify_auth_ui/raw/main/example/screenshots/SignInPage_dark.png" alt="Preview" height="500px"/>
+</p>
+
+### SignUpPage
+
+<p float="left">
+    <img src="https://github.com/finkmoritz/flutter_amplify_auth_ui/raw/main/example/screenshots/SignUpPage1_light.png" alt="Preview" height="500px"/>
+    <img src="https://github.com/finkmoritz/flutter_amplify_auth_ui/raw/main/example/screenshots/SignUpPage1_dark.png" alt="Preview" height="500px"/>
+</p>
+<p float="left">
+    <img src="https://github.com/finkmoritz/flutter_amplify_auth_ui/raw/main/example/screenshots/SignUpPage2_light.png" alt="Preview" height="500px"/>
+    <img src="https://github.com/finkmoritz/flutter_amplify_auth_ui/raw/main/example/screenshots/SignUpPage2_dark.png" alt="Preview" height="500px"/>
+</p>
+
+### PasswordResetPage
+
+<p float="left">
+    <img src="https://github.com/finkmoritz/flutter_amplify_auth_ui/raw/main/example/screenshots/PasswordResetPage_light.png" alt="Preview" height="500px"/>
+    <img src="https://github.com/finkmoritz/flutter_amplify_auth_ui/raw/main/example/screenshots/PasswordResetPage_dark.png" alt="Preview" height="500px"/>
+</p>
