@@ -14,8 +14,8 @@ dependencies:
   flutter:
     sdk: flutter
 
-  amplify_flutter: '<1.0.0'
-  amplify_auth_cognito: '<1.0.0'
+  amplify_flutter: '>=0.1.0 <1.0.0'
+  amplify_auth_cognito: '>=0.1.0 <1.0.0'
   path: ^1.8.0
 
 dev_dependencies:
