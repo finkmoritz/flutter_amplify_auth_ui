@@ -5,19 +5,19 @@ homepage: https://github.com/finkmoritz/flutter_amplify_auth_ui
 repository: https://github.com/finkmoritz/flutter_amplify_auth_ui
 issue_tracker: https://github.com/finkmoritz/flutter_amplify_auth_ui/issues
 documentation: https://github.com/finkmoritz/flutter_amplify_auth_ui/blob/main/README.md
-authors:
-  - Moritz Fink
 
 environment:
   sdk: '>=2.12.3 <3.0.0'
-  flutter: '>=2.0.0 <3.0.0'
+  flutter: '>=2.0.0'
 
-dev_dependencies:
+dependencies:
   flutter:
     sdk: flutter
+
   amplify_flutter: '<1.0.0'
   amplify_auth_cognito: '<1.0.0'
-
   path: ^1.8.0
+
+dev_dependencies:
   pedantic: ^1.9.0
   test: ^1.14.4
