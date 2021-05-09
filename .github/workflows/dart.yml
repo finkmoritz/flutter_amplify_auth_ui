@@ -2,7 +2,7 @@ name: Dart
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [ main, develop, basic-test ]
   pull_request:
     branches: [ main, develop ]
 
@@ -13,13 +13,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: dart-lang/setup-dart@v1
-        with:
-          sdk: '2.12.3'
-
       - uses: subosito/flutter-action@v1
         with:
-          flutter-version: '2.0.0'
+          channel: "stable"
 
       - name: Install dependencies
         run: flutter pub get
