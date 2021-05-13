@@ -23,6 +23,9 @@ class _SignInPageState extends State<SignInPage> {
   /*+++START usernameAttributes[email]+++*/
   final TextEditingController _emailController = TextEditingController();
   /*+++END usernameAttributes[email]+++*/
+  /*+++START usernameAttributes[phone_number]+++*/
+  final TextEditingController _phoneNumberController = TextEditingController();
+  /*+++END usernameAttributes[phone_number]+++*/
   final TextEditingController _passwordController = TextEditingController();
 
   @override
@@ -33,6 +36,9 @@ class _SignInPageState extends State<SignInPage> {
     /*+++START usernameAttributes[email]+++*/
     _emailController.dispose();
     /*+++END usernameAttributes[email]+++*/
+    /*+++START usernameAttributes[phone_number]+++*/
+    _phoneNumberController.dispose();
+    /*+++END usernameAttributes[phone_number]+++*/
     _passwordController.dispose();
     super.dispose();
   }
@@ -71,6 +77,17 @@ class _SignInPageState extends State<SignInPage> {
                   ),
                 ),
                 /*+++END usernameAttributes[email]+++*/
+                /*+++START usernameAttributes[phone_number]+++*/
+                TextFormField(
+                  controller: _phoneNumberController,
+                  keyboardType: TextInputType.phone,
+                  decoration: InputDecoration(
+                      icon: Icon(Icons.phone),
+                      hintText: 'Enter your phone number',
+                      labelText: 'Phone number'
+                  ),
+                ),
+                /*+++END usernameAttributes[phone_number]+++*/
                 TextFormField(
                   controller: _passwordController,
                   obscureText: true,
@@ -172,6 +189,9 @@ class _SignInPageState extends State<SignInPage> {
         /*+++START usernameAttributes[email]+++
         username: _emailController.text.trim(),
         +++END usernameAttributes[email]+++*/
+        /*+++START usernameAttributes[phone_number]+++
+        username: _phoneNumberController.text.trim(),
+        +++END usernameAttributes[phone_number]+++*/
         password: _passwordController.text.trim(),
       );
       if(result.isSignedIn) {

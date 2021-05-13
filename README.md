@@ -7,9 +7,10 @@ Flutter plugin that automatically generates authentication widget templates base
 ## Features
 
 ### SignInPage
-- Sign in via password and
-  - username or
-  - email
+- Sign in via password and one of the following
+    - username
+    - email
+    - phone number
 - Sign in as guest (if configured)
 - Sign in with social providers:
     - Facebook
@@ -17,15 +18,20 @@ Flutter plugin that automatically generates authentication widget templates base
     - Amazon
 
 ### SignUpPage
-- Sign up via username, password and email address (plus confirmation code)
+- Sign up via password and one of the following (plus confirmation code):
+    - username
+    - email
+    - phone number
 - Additional required attributes (if configured):
     - Nickname
     - Date of Birth
+    - Phone number
 
 ### PasswordResetPage
-- Reset password via confirmation code and
-    - username or
+- Reset password via confirmation code and one of the following
+    - username
     - email
+    - phone number
 
 ## Install
 
