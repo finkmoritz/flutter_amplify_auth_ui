@@ -21,6 +21,21 @@ class _SignUpPageState extends State<SignUpPage> {
   /*+++START requiredAttributes[nickname]+++*/
   final TextEditingController _nicknameController = TextEditingController();
   /*+++END requiredAttributes[nickname]+++*/
+  /*+++START requiredAttributes[preferred_username]+++*/
+  final TextEditingController _preferredUsernameController = TextEditingController();
+  /*+++END requiredAttributes[preferred_username]+++*/
+  /*+++START requiredAttributes[name]+++*/
+  final TextEditingController _nameController = TextEditingController();
+  /*+++END requiredAttributes[name]+++*/
+  /*+++START requiredAttributes[given_name]+++*/
+  final TextEditingController _givenNameController = TextEditingController();
+  /*+++END requiredAttributes[given_name]+++*/
+  /*+++START requiredAttributes[middle_name]+++*/
+  final TextEditingController _middleNameController = TextEditingController();
+  /*+++END requiredAttributes[middle_name]+++*/
+  /*+++START requiredAttributes[family_name]+++*/
+  final TextEditingController _familyNameController = TextEditingController();
+  /*+++END requiredAttributes[family_name]+++*/
   /*+++START requiredAttributes[birthdate]+++*/
   final TextEditingController _birthdateController = TextEditingController();
   /*+++END requiredAttributes[birthdate]+++*/
@@ -48,6 +63,21 @@ class _SignUpPageState extends State<SignUpPage> {
     /*+++START requiredAttributes[nickname]+++*/
     _nicknameController.dispose();
     /*+++END requiredAttributes[nickname]+++*/
+    /*+++START requiredAttributes[preferred_username]+++*/
+    _preferredUsernameController.dispose();
+    /*+++END requiredAttributes[preferred_username]+++*/
+    /*+++START requiredAttributes[name]+++*/
+    _nameController.dispose();
+    /*+++END requiredAttributes[name]+++*/
+    /*+++START requiredAttributes[given_name]+++*/
+    _givenNameController.dispose();
+    /*+++END requiredAttributes[given_name]+++*/
+    /*+++START requiredAttributes[middle_name]+++*/
+    _middleNameController.dispose();
+    /*+++END requiredAttributes[middle_name]+++*/
+    /*+++START requiredAttributes[family_name]+++*/
+    _familyNameController.dispose();
+    /*+++END requiredAttributes[family_name]+++*/
     /*+++START requiredAttributes[birthdate]+++*/
     _birthdateController.dispose();
     /*+++END requiredAttributes[birthdate]+++*/
@@ -212,6 +242,56 @@ class _SignUpPageState extends State<SignUpPage> {
           ),
         ),
         /*+++END requiredAttributes[nickname]+++*/
+        /*+++START requiredAttributes[preferred_username]+++*/
+        TextFormField(
+          controller: _preferredUsernameController,
+          decoration: InputDecoration(
+            icon: Icon(Icons.person_outline),
+            hintText: 'Enter your preferred username',
+            labelText: 'Preferred username',
+          ),
+        ),
+        /*+++END requiredAttributes[preferred_username]+++*/
+        /*+++START requiredAttributes[name]+++*/
+        TextFormField(
+          controller: _nameController,
+          decoration: InputDecoration(
+            icon: Icon(Icons.person_outline),
+            hintText: 'Enter your full name',
+            labelText: 'Full name',
+          ),
+        ),
+        /*+++END requiredAttributes[name]+++*/
+        /*+++START requiredAttributes[given_name]+++*/
+        TextFormField(
+          controller: _givenNameController,
+          decoration: InputDecoration(
+            icon: Icon(Icons.person_outline),
+            hintText: 'Enter your given name',
+            labelText: 'Given name',
+          ),
+        ),
+        /*+++END requiredAttributes[given_name]+++*/
+        /*+++START requiredAttributes[middle_name]+++*/
+        TextFormField(
+          controller: _middleNameController,
+          decoration: InputDecoration(
+            icon: Icon(Icons.person_outline),
+            hintText: 'Enter your middle name',
+            labelText: 'Middle name',
+          ),
+        ),
+        /*+++END requiredAttributes[middle_name]+++*/
+        /*+++START requiredAttributes[family_name]+++*/
+        TextFormField(
+          controller: _familyNameController,
+          decoration: InputDecoration(
+            icon: Icon(Icons.person_outline),
+            hintText: 'Enter your family name',
+            labelText: 'Family name',
+          ),
+        ),
+        /*+++END requiredAttributes[family_name]+++*/
         /*+++START requiredAttributes[birthdate]+++*/
         TextFormField(
           controller: _birthdateController,
