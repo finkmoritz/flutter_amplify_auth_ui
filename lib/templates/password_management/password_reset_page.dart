@@ -14,6 +14,9 @@ class _PasswordResetPageState extends State<PasswordResetPage> {
   /*+++START usernameAttributes[email]+++*/
   final TextEditingController _emailController = TextEditingController();
   /*+++END usernameAttributes[email]+++*/
+  /*+++START usernameAttributes[phone_number]+++*/
+  final TextEditingController _phoneNumberController = TextEditingController();
+  /*+++END usernameAttributes[phone_number]+++*/
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmationCodeController = TextEditingController();
 
@@ -32,6 +35,9 @@ class _PasswordResetPageState extends State<PasswordResetPage> {
     /*+++START usernameAttributes[email]+++*/
     _emailController.dispose();
     /*+++END usernameAttributes[email]+++*/
+    /*+++START usernameAttributes[phone_number]+++*/
+    _phoneNumberController.dispose();
+    /*+++END usernameAttributes[phone_number]+++*/
     _passwordController.dispose();
     _confirmationCodeController.dispose();
     super.dispose();
@@ -159,6 +165,17 @@ class _PasswordResetPageState extends State<PasswordResetPage> {
           ),
         ),
         /*+++END usernameAttributes[email]+++*/
+        /*+++START usernameAttributes[phone_number]+++*/
+        TextFormField(
+          controller: _phoneNumberController,
+          keyboardType: TextInputType.phone,
+          decoration: InputDecoration(
+              icon: Icon(Icons.phone),
+              hintText: 'Enter your phone number',
+              labelText: 'Phone number'
+          ),
+        ),
+        /*+++END usernameAttributes[phone_number]+++*/
       ],
     );
   }
@@ -189,6 +206,17 @@ class _PasswordResetPageState extends State<PasswordResetPage> {
           ),
         ),
         /*+++END usernameAttributes[email]+++*/
+        /*+++START usernameAttributes[phone_number]+++*/
+        TextFormField(
+          controller: _phoneNumberController,
+          keyboardType: TextInputType.phone,
+          decoration: InputDecoration(
+              icon: Icon(Icons.phone),
+              hintText: 'Enter your phone number',
+              labelText: 'Phone number'
+          ),
+        ),
+        /*+++END usernameAttributes[phone_number]+++*/
         TextFormField(
           controller: _passwordController,
           obscureText: true,
@@ -219,6 +247,9 @@ class _PasswordResetPageState extends State<PasswordResetPage> {
         /*+++START usernameAttributes[email]+++
         username: _emailController.text.trim(),
         +++END usernameAttributes[email]+++*/
+        /*+++START usernameAttributes[phone_number]+++
+        username: _phoneNumberController.text.trim(),
+        +++END usernameAttributes[phone_number]+++*/
       );
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         content: Text('Successfully sent confirmation code'),
@@ -241,6 +272,9 @@ class _PasswordResetPageState extends State<PasswordResetPage> {
         /*+++START usernameAttributes[email]+++
         username: _emailController.text.trim(),
         +++END usernameAttributes[email]+++*/
+        /*+++START usernameAttributes[phone_number]+++
+        username: _phoneNumberController.text.trim(),
+        +++END usernameAttributes[phone_number]+++*/
         newPassword: _passwordController.text.trim(),
         confirmationCode: _confirmationCodeController.text.trim(),
       );

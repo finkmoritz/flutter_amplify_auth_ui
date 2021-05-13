@@ -1,6 +1,7 @@
 import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
 import 'package:amplify_flutter/amplify.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class SignUpPage extends StatefulWidget {
   @override
@@ -14,6 +15,9 @@ class _SignUpPageState extends State<SignUpPage> {
   /*+++START requiredAttributes[email]+++*/
   final TextEditingController _emailController = TextEditingController();
   /*+++END requiredAttributes[email]+++*/
+  /*+++START requiredAttributes[phone_number]+++*/
+  final TextEditingController _phoneNumberController = TextEditingController();
+  /*+++END requiredAttributes[phone_number]+++*/
   /*+++START requiredAttributes[nickname]+++*/
   final TextEditingController _nicknameController = TextEditingController();
   /*+++END requiredAttributes[nickname]+++*/
@@ -38,6 +42,9 @@ class _SignUpPageState extends State<SignUpPage> {
     /*+++START requiredAttributes[email]+++*/
     _emailController.dispose();
     /*+++END requiredAttributes[email]+++*/
+    /*+++START requiredAttributes[phone_number]+++*/
+    _phoneNumberController.dispose();
+    /*+++END requiredAttributes[phone_number]+++*/
     /*+++START requiredAttributes[nickname]+++*/
     _nicknameController.dispose();
     /*+++END requiredAttributes[nickname]+++*/
@@ -165,6 +172,17 @@ class _SignUpPageState extends State<SignUpPage> {
           ),
         ),
         /*+++END requiredAttributes[email]+++*/
+        /*+++START requiredAttributes[phone_number]+++*/
+        TextFormField(
+          controller: _phoneNumberController,
+          keyboardType: TextInputType.phone,
+          decoration: InputDecoration(
+            icon: Icon(Icons.phone),
+            hintText: 'Enter your phone number',
+            labelText: 'Phone number',
+          ),
+        ),
+        /*+++END requiredAttributes[phone_number]+++*/
         /*+++START usernameAttributes[username]+++*/
         TextFormField(
           controller: _usernameController,
@@ -251,6 +269,17 @@ class _SignUpPageState extends State<SignUpPage> {
           ),
         ),
         /*+++END usernameAttributes[email]+++*/
+        /*+++START usernameAttributes[phone_number]+++*/
+        TextFormField(
+          controller: _phoneNumberController,
+          keyboardType: TextInputType.phone,
+          decoration: InputDecoration(
+            icon: Icon(Icons.phone),
+            hintText: 'Enter your phone number',
+            labelText: 'Phone number',
+          ),
+        ),
+        /*+++END usernameAttributes[phone_number]+++*/
         TextFormField(
           controller: _confirmationCodeController,
           decoration: InputDecoration(
@@ -272,12 +301,18 @@ class _SignUpPageState extends State<SignUpPage> {
         /*+++START usernameAttributes[email]+++
         username: _emailController.text.trim(),
         +++END usernameAttributes[email]+++*/
+        /*+++START usernameAttributes[phone_number]+++
+        username: _phoneNumberController.text.trim(),
+        +++END usernameAttributes[phone_number]+++*/
         password: _passwordController.text.trim(),
         options: CognitoSignUpOptions(
             userAttributes: {
               /*+++START requiredAttributes[email]+++*/
               'email': _emailController.text.trim(),
               /*+++END requiredAttributes[email]+++*/
+              /*+++START requiredAttributes[phone_number]+++*/
+              'phone_number': _phoneNumberController.text.trim(),
+              /*+++END requiredAttributes[phone_number]+++*/
               /*+++START requiredAttributes[nickname]+++*/
               'nickname': _nicknameController.text.trim(),
               /*+++END requiredAttributes[nickname]+++*/
@@ -308,6 +343,9 @@ class _SignUpPageState extends State<SignUpPage> {
         /*+++START usernameAttributes[email]+++
         username: _emailController.text.trim(),
         +++END usernameAttributes[email]+++*/
+        /*+++START usernameAttributes[phone_number]+++
+        username: _phoneNumberController.text.trim(),
+        +++END usernameAttributes[phone_number]+++*/
       );
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         content: Text('Sent confirmation code'),
@@ -327,6 +365,9 @@ class _SignUpPageState extends State<SignUpPage> {
         /*+++START usernameAttributes[email]+++
         username: _emailController.text.trim(),
         +++END usernameAttributes[email]+++*/
+        /*+++START usernameAttributes[phone_number]+++
+        username: _phoneNumberController.text.trim(),
+        +++END usernameAttributes[phone_number]+++*/
         confirmationCode: _confirmationCodeController.text.trim(),
       );
       if (result.isSignUpComplete) {
