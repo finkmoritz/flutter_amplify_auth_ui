@@ -55,7 +55,7 @@ Flutter plugin that automatically generates authentication widget templates base
 To use this plugin, add `flutter_amplify_auth_ui` as a `dev_dependency` in your pubspec.yaml:
 ```
 dev_dependencies:
-  flutter_amplify_auth_ui: ^0.1.0
+  flutter_amplify_auth_ui: ^0.1.1
 ```
 
 Run `flutter pub get` to install the plugin.
