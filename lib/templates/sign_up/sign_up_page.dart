@@ -522,7 +522,7 @@ class _SignUpPageState extends State<SignUpPage> {
         +++END usernameAttributes[phone_number]+++*/
         password: _passwordController.text.trim(),
         options: CognitoSignUpOptions(
-            userAttributes: {
+            userAttributes: Map<String, String>.from({
               /*+++START requiredAttributes[email]+++*/
               'email': _emailController.text.trim(),
               /*+++END requiredAttributes[email]+++*/
@@ -551,7 +551,7 @@ class _SignUpPageState extends State<SignUpPage> {
               'gender': _gender,
               /*+++END requiredAttributes[gender]+++*/
               /*+++START requiredAttributes[birthdate]+++*/
-              'birthdate': DateTime.parse(_birthdateController.text),
+              'birthdate': DateTime.parse(_birthdateController.text).toIso8601String().substring(0, 10),
               /*+++END requiredAttributes[birthdate]+++*/
               /*+++START requiredAttributes[picture]+++*/
               'picture': _pictureController.text.trim(),
@@ -563,16 +563,18 @@ class _SignUpPageState extends State<SignUpPage> {
               'website': _websiteController.text.trim(),
               /*+++END requiredAttributes[website]+++*/
               /*+++START requiredAttributes[address]+++*/
-              'address': '''{'street_address': ${_addressStreetController.text.trim()},
+              'address': '''{
+                'street_address': ${_addressStreetController.text.trim()},
                 'locality': ${_addressLocalityController.text.trim()},
                 'region': ${_addressRegionController.text.trim()},
                 'postal_code': ${_addressPostalCodeController.text.trim()},
-                'country': ${_addressCountryController.text.trim()}}''',
+                'country': ${_addressCountryController.text.trim()}
+              }''',
               /*+++END requiredAttributes[address]+++*/
               /*+++START requiredAttributes[updated_at]+++*/
-              'updated_at': DateTime.now().millisecondsSinceEpoch * 1000,
+              'updated_at': (DateTime.now().millisecondsSinceEpoch * 1000).toString(),
               /*+++END requiredAttributes[updated_at]+++*/
-            },
+            }),
         ),
       );
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
