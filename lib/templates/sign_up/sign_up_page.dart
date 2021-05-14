@@ -39,6 +39,15 @@ class _SignUpPageState extends State<SignUpPage> {
   /*+++START requiredAttributes[birthdate]+++*/
   final TextEditingController _birthdateController = TextEditingController();
   /*+++END requiredAttributes[birthdate]+++*/
+  /*+++START requiredAttributes[picture]+++*/
+  final TextEditingController _pictureController = TextEditingController();
+  /*+++END requiredAttributes[picture]+++*/
+  /*+++START requiredAttributes[profile]+++*/
+  final TextEditingController _profileController = TextEditingController();
+  /*+++END requiredAttributes[profile]+++*/
+  /*+++START requiredAttributes[website]+++*/
+  final TextEditingController _websiteController = TextEditingController();
+  /*+++END requiredAttributes[website]+++*/
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmationCodeController = TextEditingController();
 
@@ -85,6 +94,15 @@ class _SignUpPageState extends State<SignUpPage> {
     /*+++START requiredAttributes[birthdate]+++*/
     _birthdateController.dispose();
     /*+++END requiredAttributes[birthdate]+++*/
+    /*+++START requiredAttributes[picture]+++*/
+    _pictureController.dispose();
+    /*+++END requiredAttributes[picture]+++*/
+    /*+++START requiredAttributes[profile]+++*/
+    _profileController.dispose();
+    /*+++END requiredAttributes[profile]+++*/
+    /*+++START requiredAttributes[website]+++*/
+    _websiteController.dispose();
+    /*+++END requiredAttributes[website]+++*/
     _passwordController.dispose();
     _confirmationCodeController.dispose();
     super.dispose();
@@ -345,6 +363,36 @@ class _SignUpPageState extends State<SignUpPage> {
           },
         ),
         /*+++END requiredAttributes[birthdate]+++*/
+        /*+++START requiredAttributes[picture]+++*/
+        TextFormField(
+          controller: _pictureController,
+          decoration: InputDecoration(
+            icon: Icon(Icons.photo_camera_outlined),
+            hintText: 'Enter your picture URL',
+            labelText: 'Picture URL',
+          ),
+        ),
+        /*+++END requiredAttributes[picture]+++*/
+        /*+++START requiredAttributes[profile]+++*/
+        TextFormField(
+          controller: _profileController,
+          decoration: InputDecoration(
+            icon: Icon(Icons.web),
+            hintText: 'Enter your profile URL',
+            labelText: 'Profile URL',
+          ),
+        ),
+        /*+++END requiredAttributes[profile]+++*/
+        /*+++START requiredAttributes[website]+++*/
+        TextFormField(
+          controller: _websiteController,
+          decoration: InputDecoration(
+            icon: Icon(Icons.public),
+            hintText: 'Enter your website URL',
+            labelText: 'Website URL',
+          ),
+        ),
+        /*+++END requiredAttributes[website]+++*/
       ],
     );
   }
@@ -441,6 +489,15 @@ class _SignUpPageState extends State<SignUpPage> {
               /*+++START requiredAttributes[birthdate]+++*/
               'birthdate': DateTime.parse(_birthdateController.text),
               /*+++END requiredAttributes[birthdate]+++*/
+              /*+++START requiredAttributes[picture]+++*/
+              'picture': _pictureController.text.trim(),
+              /*+++END requiredAttributes[picture]+++*/
+              /*+++START requiredAttributes[profile]+++*/
+              'profile': _profileController.text.trim(),
+              /*+++END requiredAttributes[profile]+++*/
+              /*+++START requiredAttributes[website]+++*/
+              'website': _websiteController.text.trim(),
+              /*+++END requiredAttributes[website]+++*/
               /*+++START requiredAttributes[updated_at]+++*/
               'updated_at': DateTime.now().millisecondsSinceEpoch * 1000,
               /*+++END requiredAttributes[updated_at]+++*/

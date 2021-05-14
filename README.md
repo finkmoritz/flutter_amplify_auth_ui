@@ -33,6 +33,10 @@ Flutter plugin that automatically generates authentication widget templates base
     - Family name
     - Gender
     - Date of Birth
+    - Picture
+    - Profile
+    - Website
+    - Updated at
 
 ### PasswordResetPage
 - Reset password via confirmation code and one of the following

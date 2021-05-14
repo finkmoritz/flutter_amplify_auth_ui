@@ -14,7 +14,10 @@ class SignUpPageTemplateHandler extends TemplateHandler {
     'nickname',
     'phone_number',
     'preferred_username',
+    'profile',
+    'picture',
     'updated_at',
+    'website',
   ];
   static const List<String> configurableUsernameAttributes = [
     'email',
