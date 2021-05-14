@@ -43,7 +43,7 @@ class _SignUpPageState extends State<SignUpPage> {
   final TextEditingController _confirmationCodeController = TextEditingController();
 
   /*+++START requiredAttributes[gender]+++*/
-  String gender = 'other';
+  String _gender = 'other';
   /*+++END requiredAttributes[gender]+++*/
 
   int _stepIndex = 0;
@@ -298,7 +298,7 @@ class _SignUpPageState extends State<SignUpPage> {
         /*+++END requiredAttributes[family_name]+++*/
         /*+++START requiredAttributes[gender]+++*/
         DropdownButtonFormField(
-          value: gender,
+          value: _gender,
           decoration: InputDecoration(
             icon: Icon(Icons.attribution_outlined),
             labelText: 'Gender',
@@ -311,7 +311,7 @@ class _SignUpPageState extends State<SignUpPage> {
           }).toList(),
           onChanged: (String? value) {
             setState(() {
-              gender = value ?? '';
+              _gender = value ?? '';
             });
           },
         ),
@@ -420,8 +420,23 @@ class _SignUpPageState extends State<SignUpPage> {
               /*+++START requiredAttributes[nickname]+++*/
               'nickname': _nicknameController.text.trim(),
               /*+++END requiredAttributes[nickname]+++*/
+              /*+++START requiredAttributes[preferred_username]+++*/
+              'preferred_username': _preferredUsernameController.text.trim(),
+              /*+++END requiredAttributes[preferred_username]+++*/
+              /*+++START requiredAttributes[name]+++*/
+              'name': _nameController.text.trim(),
+              /*+++END requiredAttributes[name]+++*/
+              /*+++START requiredAttributes[given_name]+++*/
+              'given_name': _givenNameController.text.trim(),
+              /*+++END requiredAttributes[given_name]+++*/
+              /*+++START requiredAttributes[middle_name]+++*/
+              'middle_name': _middleNameController.text.trim(),
+              /*+++END requiredAttributes[middle_name]+++*/
+              /*+++START requiredAttributes[family_name]+++*/
+              'family_name': _familyNameController.text.trim(),
+              /*+++END requiredAttributes[family_name]+++*/
               /*+++START requiredAttributes[gender]+++*/
-              'gender': gender,
+              'gender': _gender,
               /*+++END requiredAttributes[gender]+++*/
               /*+++START requiredAttributes[birthdate]+++*/
               'birthdate': DateTime.parse(_birthdateController.text),
