@@ -7,9 +7,10 @@ Flutter plugin that automatically generates authentication widget templates base
 ## Features
 
 ### SignInPage
-- Sign in via password and
-  - username or
-  - email
+- Sign in via password and one of the following
+    - username
+    - email
+    - phone number
 - Sign in as guest (if configured)
 - Sign in with social providers:
     - Facebook
@@ -17,22 +18,44 @@ Flutter plugin that automatically generates authentication widget templates base
     - Amazon
 
 ### SignUpPage
-- Sign up via username, password and email address (plus confirmation code)
+- Sign up via password and one of the following (plus confirmation code):
+    - username
+    - email
+    - phone number
 - Additional required attributes (if configured):
+    - Address
+        - Street address
+        - Locality
+        - Region
+        - Postal code
+        - Country
+    - Email
+    - Phone number
     - Nickname
+    - Preferred username
+    - Name
+    - Given name
+    - Middle name
+    - Family name
+    - Gender
     - Date of Birth
+    - Picture
+    - Profile
+    - Website
+    - Updated at
 
 ### PasswordResetPage
-- Reset password via confirmation code and
-    - username or
+- Reset password via confirmation code and one of the following
+    - username
     - email
+    - phone number
 
 ## Install
 
 To use this plugin, add `flutter_amplify_auth_ui` as a `dev_dependency` in your pubspec.yaml:
 ```
 dev_dependencies:
-  flutter_amplify_auth_ui: ^0.1.0
+  flutter_amplify_auth_ui: ^0.1.1
 ```
 
 Run `flutter pub get` to install the plugin.
