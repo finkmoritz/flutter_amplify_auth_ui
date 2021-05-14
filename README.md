@@ -23,6 +23,12 @@ Flutter plugin that automatically generates authentication widget templates base
     - email
     - phone number
 - Additional required attributes (if configured):
+    - Address
+        - Street address
+        - Locality
+        - Region
+        - Postal code
+        - Country
     - Email
     - Phone number
     - Nickname

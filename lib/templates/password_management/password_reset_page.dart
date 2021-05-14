@@ -158,6 +158,7 @@ class _PasswordResetPageState extends State<PasswordResetPage> {
         /*+++START usernameAttributes[email]+++*/
         TextFormField(
           controller: _emailController,
+          keyboardType: TextInputType.emailAddress,
           decoration: InputDecoration(
               icon: Icon(Icons.mail),
               hintText: 'Enter your email address',
@@ -199,6 +200,7 @@ class _PasswordResetPageState extends State<PasswordResetPage> {
         /*+++START usernameAttributes[email]+++*/
         TextFormField(
           controller: _emailController,
+          keyboardType: TextInputType.emailAddress,
           decoration: InputDecoration(
               icon: Icon(Icons.mail),
               hintText: 'Enter your email address',
@@ -228,6 +230,7 @@ class _PasswordResetPageState extends State<PasswordResetPage> {
         ),
         TextFormField(
           controller: _confirmationCodeController,
+          keyboardType: TextInputType.number,
           decoration: InputDecoration(
               icon: Icon(Icons.check),
               hintText: 'Enter confirmation code',

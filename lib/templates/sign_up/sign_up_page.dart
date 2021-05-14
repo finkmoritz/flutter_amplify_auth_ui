@@ -48,6 +48,13 @@ class _SignUpPageState extends State<SignUpPage> {
   /*+++START requiredAttributes[website]+++*/
   final TextEditingController _websiteController = TextEditingController();
   /*+++END requiredAttributes[website]+++*/
+  /*+++START requiredAttributes[address]+++*/
+  final TextEditingController _addressStreetController = TextEditingController();
+  final TextEditingController _addressLocalityController = TextEditingController();
+  final TextEditingController _addressRegionController = TextEditingController();
+  final TextEditingController _addressPostalCodeController = TextEditingController();
+  final TextEditingController _addressCountryController = TextEditingController();
+  /*+++END requiredAttributes[address]+++*/
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmationCodeController = TextEditingController();
 
@@ -103,6 +110,13 @@ class _SignUpPageState extends State<SignUpPage> {
     /*+++START requiredAttributes[website]+++*/
     _websiteController.dispose();
     /*+++END requiredAttributes[website]+++*/
+    /*+++START requiredAttributes[address]+++*/
+    _addressStreetController.dispose();
+    _addressLocalityController.dispose();
+    _addressRegionController.dispose();
+    _addressPostalCodeController.dispose();
+    _addressCountryController.dispose();
+    /*+++END requiredAttributes[address]+++*/
     _passwordController.dispose();
     _confirmationCodeController.dispose();
     super.dispose();
@@ -217,6 +231,7 @@ class _SignUpPageState extends State<SignUpPage> {
         /*+++START requiredAttributes[email]+++*/
         TextFormField(
           controller: _emailController,
+          keyboardType: TextInputType.emailAddress,
           decoration: InputDecoration(
               icon: Icon(Icons.mail),
               hintText: 'Enter your email address',
@@ -366,6 +381,7 @@ class _SignUpPageState extends State<SignUpPage> {
         /*+++START requiredAttributes[picture]+++*/
         TextFormField(
           controller: _pictureController,
+          keyboardType: TextInputType.url,
           decoration: InputDecoration(
             icon: Icon(Icons.photo_camera_outlined),
             hintText: 'Enter your picture URL',
@@ -376,6 +392,7 @@ class _SignUpPageState extends State<SignUpPage> {
         /*+++START requiredAttributes[profile]+++*/
         TextFormField(
           controller: _profileController,
+          keyboardType: TextInputType.url,
           decoration: InputDecoration(
             icon: Icon(Icons.web),
             hintText: 'Enter your profile URL',
@@ -386,6 +403,7 @@ class _SignUpPageState extends State<SignUpPage> {
         /*+++START requiredAttributes[website]+++*/
         TextFormField(
           controller: _websiteController,
+          keyboardType: TextInputType.url,
           decoration: InputDecoration(
             icon: Icon(Icons.public),
             hintText: 'Enter your website URL',
@@ -393,6 +411,50 @@ class _SignUpPageState extends State<SignUpPage> {
           ),
         ),
         /*+++END requiredAttributes[website]+++*/
+        /*+++START requiredAttributes[address]+++*/
+        TextFormField(
+          controller: _addressStreetController,
+          keyboardType: TextInputType.streetAddress,
+          decoration: InputDecoration(
+            icon: Icon(Icons.house_outlined),
+            hintText: 'Enter your street address and house number',
+            labelText: 'Street address and house number',
+          ),
+        ),
+        TextFormField(
+          controller: _addressLocalityController,
+          decoration: InputDecoration(
+            icon: Icon(Icons.location_city_outlined),
+            hintText: 'Enter your city',
+            labelText: 'City',
+          ),
+        ),
+        TextFormField(
+          controller: _addressRegionController,
+          decoration: InputDecoration(
+            icon: Icon(Icons.flag_outlined),
+            hintText: 'Enter your state or province',
+            labelText: 'State or province',
+          ),
+        ),
+        TextFormField(
+          controller: _addressPostalCodeController,
+          keyboardType: TextInputType.number,
+          decoration: InputDecoration(
+            icon: Icon(Icons.local_post_office_outlined),
+            hintText: 'Enter your zip or postal code',
+            labelText: 'Zip or postal code',
+          ),
+        ),
+        TextFormField(
+          controller: _addressCountryController,
+          decoration: InputDecoration(
+            icon: Icon(Icons.flag_outlined),
+            hintText: 'Enter your country',
+            labelText: 'Country',
+          ),
+        ),
+        /*+++END requiredAttributes[address]+++*/
       ],
     );
   }
@@ -414,6 +476,7 @@ class _SignUpPageState extends State<SignUpPage> {
         /*+++START usernameAttributes[email]+++*/
         TextFormField(
           controller: _emailController,
+          keyboardType: TextInputType.emailAddress,
           decoration: InputDecoration(
             icon: Icon(Icons.mail),
             hintText: 'Enter your email address',
@@ -434,6 +497,7 @@ class _SignUpPageState extends State<SignUpPage> {
         /*+++END usernameAttributes[phone_number]+++*/
         TextFormField(
           controller: _confirmationCodeController,
+          keyboardType: TextInputType.number,
           decoration: InputDecoration(
               icon: Icon(Icons.check),
               hintText: 'Enter your confirmation code',
@@ -498,6 +562,13 @@ class _SignUpPageState extends State<SignUpPage> {
               /*+++START requiredAttributes[website]+++*/
               'website': _websiteController.text.trim(),
               /*+++END requiredAttributes[website]+++*/
+              /*+++START requiredAttributes[address]+++*/
+              'address': '''{'street_address': ${_addressStreetController.text.trim()},
+                'locality': ${_addressLocalityController.text.trim()},
+                'region': ${_addressRegionController.text.trim()},
+                'postal_code': ${_addressPostalCodeController.text.trim()},
+                'country': ${_addressCountryController.text.trim()}}''',
+              /*+++END requiredAttributes[address]+++*/
               /*+++START requiredAttributes[updated_at]+++*/
               'updated_at': DateTime.now().millisecondsSinceEpoch * 1000,
               /*+++END requiredAttributes[updated_at]+++*/

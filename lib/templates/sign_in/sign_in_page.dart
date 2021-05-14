@@ -70,6 +70,7 @@ class _SignInPageState extends State<SignInPage> {
                 /*+++START usernameAttributes[email]+++*/
                 TextFormField(
                   controller: _emailController,
+                  keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
                       icon: Icon(Icons.mail),
                       hintText: 'Enter your email address',
