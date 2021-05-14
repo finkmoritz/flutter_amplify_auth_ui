@@ -1,3 +1,8 @@
+## 0.1.2
+
+- Fix PasswordResetPage
+- Fix CognitoSignUpOptions for address JSON, birthdate and updated_at
+
 ## 0.1.1
 
 - Support Amplify configurations with phone number as username
