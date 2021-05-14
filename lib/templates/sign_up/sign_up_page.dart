@@ -441,6 +441,9 @@ class _SignUpPageState extends State<SignUpPage> {
               /*+++START requiredAttributes[birthdate]+++*/
               'birthdate': DateTime.parse(_birthdateController.text),
               /*+++END requiredAttributes[birthdate]+++*/
+              /*+++START requiredAttributes[updated_at]+++*/
+              'updated_at': DateTime.now().millisecondsSinceEpoch * 1000,
+              /*+++END requiredAttributes[updated_at]+++*/
             },
         ),
       );
