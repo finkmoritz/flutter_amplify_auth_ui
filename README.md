@@ -31,6 +31,7 @@ Flutter plugin that automatically generates authentication widget templates base
     - Given name
     - Middle name
     - Family name
+    - Gender
     - Date of Birth
 
 ### PasswordResetPage
