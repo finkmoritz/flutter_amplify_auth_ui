@@ -5,6 +5,7 @@ import 'package:flutter_amplify_auth_ui/src/template_handlers/template_handler.d
 class PasswordResetPageTemplateHandler extends TemplateHandler {
   static const List<String> configurableUsernameAttributes = [
     'email',
+    'phone_number',
   ];
 
   @override
