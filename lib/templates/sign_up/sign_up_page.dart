@@ -233,7 +233,7 @@ class _SignUpPageState extends State<SignUpPage> {
           controller: _emailController,
           keyboardType: TextInputType.emailAddress,
           decoration: InputDecoration(
-              icon: Icon(Icons.mail),
+              icon: Icon(Icons.mail_outline),
               hintText: 'Enter your email address',
               labelText: 'Email address',
           ),
@@ -244,7 +244,7 @@ class _SignUpPageState extends State<SignUpPage> {
           controller: _phoneNumberController,
           keyboardType: TextInputType.phone,
           decoration: InputDecoration(
-            icon: Icon(Icons.phone),
+            icon: Icon(Icons.phone_outlined),
             hintText: 'Enter your phone number',
             labelText: 'Phone number',
           ),
@@ -254,7 +254,7 @@ class _SignUpPageState extends State<SignUpPage> {
         TextFormField(
           controller: _usernameController,
           decoration: InputDecoration(
-              icon: Icon(Icons.person),
+              icon: Icon(Icons.person_outline),
               hintText: 'Choose your username',
               labelText: 'Username',
           ),
@@ -264,7 +264,7 @@ class _SignUpPageState extends State<SignUpPage> {
           controller: _passwordController,
           obscureText: true,
           decoration: InputDecoration(
-              icon: Icon(Icons.lock),
+              icon: Icon(Icons.lock_outline),
               hintText: 'Choose your password',
               labelText: 'Password',
           ),
@@ -353,7 +353,7 @@ class _SignUpPageState extends State<SignUpPage> {
         TextFormField(
           controller: _birthdateController,
           decoration: InputDecoration(
-            icon: Icon(Icons.calendar_today),
+            icon: Icon(Icons.calendar_today_outlined),
             hintText: 'Enter your date of birth',
             labelText: 'Date of Birth',
           ),
@@ -394,7 +394,7 @@ class _SignUpPageState extends State<SignUpPage> {
           controller: _profileController,
           keyboardType: TextInputType.url,
           decoration: InputDecoration(
-            icon: Icon(Icons.web),
+            icon: Icon(Icons.web_outlined),
             hintText: 'Enter your profile URL',
             labelText: 'Profile URL',
           ),
@@ -405,7 +405,7 @@ class _SignUpPageState extends State<SignUpPage> {
           controller: _websiteController,
           keyboardType: TextInputType.url,
           decoration: InputDecoration(
-            icon: Icon(Icons.public),
+            icon: Icon(Icons.public_outlined),
             hintText: 'Enter your website URL',
             labelText: 'Website URL',
           ),
@@ -467,7 +467,7 @@ class _SignUpPageState extends State<SignUpPage> {
         TextFormField(
           controller: _usernameController,
           decoration: InputDecoration(
-              icon: Icon(Icons.person),
+              icon: Icon(Icons.person_outline),
               hintText: 'Enter your username',
               labelText: 'Username'
           ),
@@ -478,7 +478,7 @@ class _SignUpPageState extends State<SignUpPage> {
           controller: _emailController,
           keyboardType: TextInputType.emailAddress,
           decoration: InputDecoration(
-            icon: Icon(Icons.mail),
+            icon: Icon(Icons.mail_outline),
             hintText: 'Enter your email address',
             labelText: 'Email address',
           ),
@@ -489,7 +489,7 @@ class _SignUpPageState extends State<SignUpPage> {
           controller: _phoneNumberController,
           keyboardType: TextInputType.phone,
           decoration: InputDecoration(
-            icon: Icon(Icons.phone),
+            icon: Icon(Icons.phone_outlined),
             hintText: 'Enter your phone number',
             labelText: 'Phone number',
           ),
@@ -499,7 +499,7 @@ class _SignUpPageState extends State<SignUpPage> {
           controller: _confirmationCodeController,
           keyboardType: TextInputType.number,
           decoration: InputDecoration(
-              icon: Icon(Icons.check),
+              icon: Icon(Icons.check_outlined),
               hintText: 'Enter your confirmation code',
               labelText: 'Confirmation code'
           ),

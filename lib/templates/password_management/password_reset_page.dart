@@ -149,7 +149,7 @@ class _PasswordResetPageState extends State<PasswordResetPage> {
         TextFormField(
           controller: _usernameController,
           decoration: InputDecoration(
-              icon: Icon(Icons.person),
+              icon: Icon(Icons.person_outline),
               hintText: 'Enter your username',
               labelText: 'Username'
           ),
@@ -160,7 +160,7 @@ class _PasswordResetPageState extends State<PasswordResetPage> {
           controller: _emailController,
           keyboardType: TextInputType.emailAddress,
           decoration: InputDecoration(
-              icon: Icon(Icons.mail),
+              icon: Icon(Icons.mail_outline),
               hintText: 'Enter your email address',
               labelText: 'Email address'
           ),
@@ -171,7 +171,7 @@ class _PasswordResetPageState extends State<PasswordResetPage> {
           controller: _phoneNumberController,
           keyboardType: TextInputType.phone,
           decoration: InputDecoration(
-              icon: Icon(Icons.phone),
+              icon: Icon(Icons.phone_outlined),
               hintText: 'Enter your phone number',
               labelText: 'Phone number'
           ),
@@ -191,7 +191,7 @@ class _PasswordResetPageState extends State<PasswordResetPage> {
         TextFormField(
           controller: _usernameController,
           decoration: InputDecoration(
-              icon: Icon(Icons.person),
+              icon: Icon(Icons.person_outline),
               hintText: 'Enter your username',
               labelText: 'Username'
           ),
@@ -202,7 +202,7 @@ class _PasswordResetPageState extends State<PasswordResetPage> {
           controller: _emailController,
           keyboardType: TextInputType.emailAddress,
           decoration: InputDecoration(
-              icon: Icon(Icons.mail),
+              icon: Icon(Icons.mail_outline),
               hintText: 'Enter your email address',
               labelText: 'Email address'
           ),
@@ -213,7 +213,7 @@ class _PasswordResetPageState extends State<PasswordResetPage> {
           controller: _phoneNumberController,
           keyboardType: TextInputType.phone,
           decoration: InputDecoration(
-              icon: Icon(Icons.phone),
+              icon: Icon(Icons.phone_outlined),
               hintText: 'Enter your phone number',
               labelText: 'Phone number'
           ),
@@ -223,7 +223,7 @@ class _PasswordResetPageState extends State<PasswordResetPage> {
           controller: _passwordController,
           obscureText: true,
           decoration: InputDecoration(
-              icon: Icon(Icons.lock),
+              icon: Icon(Icons.lock_outline),
               hintText: 'Enter your new password',
               labelText: 'New password'
           ),
@@ -232,7 +232,7 @@ class _PasswordResetPageState extends State<PasswordResetPage> {
           controller: _confirmationCodeController,
           keyboardType: TextInputType.number,
           decoration: InputDecoration(
-              icon: Icon(Icons.check),
+              icon: Icon(Icons.check_outlined),
               hintText: 'Enter confirmation code',
               labelText: 'Confirmation code'
           ),
