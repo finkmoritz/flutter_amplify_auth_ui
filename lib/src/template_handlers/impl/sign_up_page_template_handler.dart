@@ -4,12 +4,25 @@ import 'package:flutter_amplify_auth_ui/src/template_handlers/template_handler.d
 
 class SignUpPageTemplateHandler extends TemplateHandler {
   static const List<String> configurableRequiredAttributes = [
-    'email',
-    'nickname',
+    'address',
     'birthdate',
+    'email',
+    'family_name',
+    'gender',
+    'given_name',
+    'middle_name',
+    'name',
+    'nickname',
+    'phone_number',
+    'preferred_username',
+    'profile',
+    'picture',
+    'updated_at',
+    'website',
   ];
   static const List<String> configurableUsernameAttributes = [
     'email',
+    'phone_number',
   ];
 
   @override

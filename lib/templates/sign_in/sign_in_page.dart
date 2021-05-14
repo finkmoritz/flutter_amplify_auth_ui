@@ -61,7 +61,7 @@ class _SignInPageState extends State<SignInPage> {
                 TextFormField(
                   controller: _usernameController,
                   decoration: InputDecoration(
-                      icon: Icon(Icons.person),
+                      icon: Icon(Icons.person_outline),
                       hintText: 'Enter your username',
                       labelText: 'Username'
                   ),
@@ -70,8 +70,9 @@ class _SignInPageState extends State<SignInPage> {
                 /*+++START usernameAttributes[email]+++*/
                 TextFormField(
                   controller: _emailController,
+                  keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
-                      icon: Icon(Icons.mail),
+                      icon: Icon(Icons.mail_outline),
                       hintText: 'Enter your email address',
                       labelText: 'Email address'
                   ),
@@ -82,7 +83,7 @@ class _SignInPageState extends State<SignInPage> {
                   controller: _phoneNumberController,
                   keyboardType: TextInputType.phone,
                   decoration: InputDecoration(
-                      icon: Icon(Icons.phone),
+                      icon: Icon(Icons.phone_outlined),
                       hintText: 'Enter your phone number',
                       labelText: 'Phone number'
                   ),
@@ -92,7 +93,7 @@ class _SignInPageState extends State<SignInPage> {
                   controller: _passwordController,
                   obscureText: true,
                   decoration: InputDecoration(
-                      icon: Icon(Icons.lock),
+                      icon: Icon(Icons.lock_outline),
                       hintText: 'Enter your password',
                       labelText: 'Password'
                   ),

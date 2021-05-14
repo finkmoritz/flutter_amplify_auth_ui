@@ -23,9 +23,26 @@ Flutter plugin that automatically generates authentication widget templates base
     - email
     - phone number
 - Additional required attributes (if configured):
-    - Nickname
-    - Date of Birth
+    - Address
+        - Street address
+        - Locality
+        - Region
+        - Postal code
+        - Country
+    - Email
     - Phone number
+    - Nickname
+    - Preferred username
+    - Name
+    - Given name
+    - Middle name
+    - Family name
+    - Gender
+    - Date of Birth
+    - Picture
+    - Profile
+    - Website
+    - Updated at
 
 ### PasswordResetPage
 - Reset password via confirmation code and one of the following
