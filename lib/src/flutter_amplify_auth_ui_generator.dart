@@ -35,6 +35,12 @@ class FlutterAmplifyAuthUIGenerator {
       templateHandler: PasswordResetPageTemplateHandler(),
       authConfig: authConfig,
     );
+    _generateClassFromTemplate(
+      targetDir: targetDir,
+      templateName: 'password_management/password_change_page.dart',
+      templateHandler: null,
+      authConfig: authConfig,
+    );
   }
 
   static Future<void> _generateClassFromTemplate({
