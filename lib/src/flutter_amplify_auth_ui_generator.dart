@@ -12,10 +12,8 @@ import 'package:path/path.dart' as path;
 import 'auth_config/auth_config.dart';
 
 class FlutterAmplifyAuthUIGenerator {
-  static void generateClassesFromConfig({
-    required AuthConfig authConfig,
-    required String targetDir
-  }) {
+  static void generateClassesFromConfig(
+      {required AuthConfig authConfig, required String targetDir}) {
     Directory(targetDir).createSync();
 
     CommandLine.printMessage('Generating classes...');
@@ -46,7 +44,7 @@ class FlutterAmplifyAuthUIGenerator {
     AuthConfig? authConfig,
   }) async {
     var template = await Template.byName(templateName: templateName);
-    if(templateHandler != null && authConfig != null) {
+    if (templateHandler != null && authConfig != null) {
       templateHandler.modifyTemplate(
         template: template,
         authConfig: authConfig,

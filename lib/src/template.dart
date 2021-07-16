@@ -18,9 +18,10 @@ class Template {
   }
 
   static Future<Template> byName({required String templateName}) async {
-    var uri = Uri.parse('package:flutter_amplify_auth_ui/templates/$templateName');
+    var uri =
+        Uri.parse('package:flutter_amplify_auth_ui/templates/$templateName');
     var resolvedUri = await Isolate.resolvePackageUri(uri);
-    if(resolvedUri == null) {
+    if (resolvedUri == null) {
       throw Exception('Could not resolve path to $uri');
     } else {
       return Template._(pathToTemplate: resolvedUri.toFilePath());
@@ -34,16 +35,19 @@ class Template {
   }
 
   void remove({required String identifier}) {
-    while(_content.contains(delimiterStart + identifier)) {
-      var startIndex = _content.lastIndexOf('\n', _content.indexOf(delimiterStart + identifier));
-      var endIndex = _content.indexOf('\n', _content.indexOf(delimiterEnd + identifier));
-      _content = _content.substring(0, startIndex) + _content.substring(endIndex);
+    while (_content.contains(delimiterStart + identifier)) {
+      var startIndex = _content.lastIndexOf(
+          '\n', _content.indexOf(delimiterStart + identifier));
+      var endIndex =
+          _content.indexOf('\n', _content.indexOf(delimiterEnd + identifier));
+      _content =
+          _content.substring(0, startIndex) + _content.substring(endIndex);
     }
   }
 
   void removeAllIdentifiers() {
-    for(var delimiter in delimiters) {
-      while(_content.contains(delimiter)) {
+    for (var delimiter in delimiters) {
+      while (_content.contains(delimiter)) {
         _removeLineAt(_content.indexOf(delimiter));
       }
     }

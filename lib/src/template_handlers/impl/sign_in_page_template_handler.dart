@@ -14,40 +14,44 @@ class SignInPageTemplateHandler extends TemplateHandler {
   ];
 
   @override
-  void modifyTemplate({required Template template, required AuthConfig authConfig}) {
+  void modifyTemplate(
+      {required Template template, required AuthConfig authConfig}) {
     _handleUsernameAttributes(template: template, authConfig: authConfig);
     _handleGuestSignIn(template: template, authConfig: authConfig);
     _handleSignInWithWebUI(template: template, authConfig: authConfig);
   }
 
-  void _handleUsernameAttributes({required Template template, required AuthConfig authConfig}) {
-    if(authConfig.usernameAttributes.isEmpty) {
+  void _handleUsernameAttributes(
+      {required Template template, required AuthConfig authConfig}) {
+    if (authConfig.usernameAttributes.isEmpty) {
       configurableUsernameAttributes.forEach((attribute) {
         template.remove(identifier: 'usernameAttributes[$attribute]');
       });
     } else {
       template.remove(identifier: 'usernameAttributes[username]');
       configurableUsernameAttributes.forEach((attribute) {
-        if(!authConfig.usernameAttributes.contains(attribute)) {
+        if (!authConfig.usernameAttributes.contains(attribute)) {
           template.remove(identifier: 'usernameAttributes[$attribute]');
         }
       });
     }
   }
 
-  void _handleGuestSignIn({required Template template, required AuthConfig authConfig}) {
-    if(!authConfig.allowUnauthenticatedIdentities) {
+  void _handleGuestSignIn(
+      {required Template template, required AuthConfig authConfig}) {
+    if (!authConfig.allowUnauthenticatedIdentities) {
       template.remove(identifier: 'allowUnauthenticatedIdentities');
     }
   }
 
-  void _handleSignInWithWebUI({required Template template, required AuthConfig authConfig}) {
+  void _handleSignInWithWebUI(
+      {required Template template, required AuthConfig authConfig}) {
     configurableAuthProviders.forEach((provider) {
-      if(!authConfig.authProvidersUserPool.contains(provider)) {
+      if (!authConfig.authProvidersUserPool.contains(provider)) {
         template.remove(identifier: 'authProvidersUserPool[$provider]');
       }
     });
-    if(authConfig.authProvidersUserPool.isEmpty) {
+    if (authConfig.authProvidersUserPool.isEmpty) {
       template.remove(identifier: 'authProvidersUserPool[any]');
     }
   }

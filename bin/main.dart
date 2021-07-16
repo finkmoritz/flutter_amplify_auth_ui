@@ -6,7 +6,8 @@ void main(List<String> args) {
   CommandLine.printHeader();
 
   var amplifyDir = CommandLine.readArg(args, '--amplifyDir') ?? './amplify/';
-  var targetDir = CommandLine.readArg(args, '--targetDir') ?? './lib/generated_auth_classes/';
+  var targetDir = CommandLine.readArg(args, '--targetDir') ??
+      './lib/generated_auth_classes/';
 
   CommandLine.printMessage('Using following parameters:');
   CommandLine.printMessage('\t--amplifyDir=$amplifyDir');
@@ -19,5 +20,3 @@ void main(List<String> args) {
     targetDir: targetDir,
   );
 }
-
-

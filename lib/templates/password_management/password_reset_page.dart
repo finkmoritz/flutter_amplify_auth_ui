@@ -18,7 +18,8 @@ class _PasswordResetPageState extends State<PasswordResetPage> {
   final TextEditingController _phoneNumberController = TextEditingController();
   /*+++END usernameAttributes[phone_number]+++*/
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _confirmationCodeController = TextEditingController();
+  final TextEditingController _confirmationCodeController =
+      TextEditingController();
 
   int _stepIndex = 0;
 
@@ -151,8 +152,7 @@ class _PasswordResetPageState extends State<PasswordResetPage> {
           decoration: InputDecoration(
               icon: Icon(Icons.person_outline),
               hintText: 'Enter your username',
-              labelText: 'Username'
-          ),
+              labelText: 'Username'),
         ),
         /*+++END usernameAttributes[username]+++*/
         /*+++START usernameAttributes[email]+++*/
@@ -162,8 +162,7 @@ class _PasswordResetPageState extends State<PasswordResetPage> {
           decoration: InputDecoration(
               icon: Icon(Icons.mail_outline),
               hintText: 'Enter your email address',
-              labelText: 'Email address'
-          ),
+              labelText: 'Email address'),
         ),
         /*+++END usernameAttributes[email]+++*/
         /*+++START usernameAttributes[phone_number]+++*/
@@ -173,8 +172,7 @@ class _PasswordResetPageState extends State<PasswordResetPage> {
           decoration: InputDecoration(
               icon: Icon(Icons.phone_outlined),
               hintText: 'Enter your phone number',
-              labelText: 'Phone number'
-          ),
+              labelText: 'Phone number'),
         ),
         /*+++END usernameAttributes[phone_number]+++*/
       ],
@@ -193,8 +191,7 @@ class _PasswordResetPageState extends State<PasswordResetPage> {
           decoration: InputDecoration(
               icon: Icon(Icons.person_outline),
               hintText: 'Enter your username',
-              labelText: 'Username'
-          ),
+              labelText: 'Username'),
         ),
         /*+++END usernameAttributes[username]+++*/
         /*+++START usernameAttributes[email]+++*/
@@ -204,8 +201,7 @@ class _PasswordResetPageState extends State<PasswordResetPage> {
           decoration: InputDecoration(
               icon: Icon(Icons.mail_outline),
               hintText: 'Enter your email address',
-              labelText: 'Email address'
-          ),
+              labelText: 'Email address'),
         ),
         /*+++END usernameAttributes[email]+++*/
         /*+++START usernameAttributes[phone_number]+++*/
@@ -215,8 +211,7 @@ class _PasswordResetPageState extends State<PasswordResetPage> {
           decoration: InputDecoration(
               icon: Icon(Icons.phone_outlined),
               hintText: 'Enter your phone number',
-              labelText: 'Phone number'
-          ),
+              labelText: 'Phone number'),
         ),
         /*+++END usernameAttributes[phone_number]+++*/
         TextFormField(
@@ -225,8 +220,7 @@ class _PasswordResetPageState extends State<PasswordResetPage> {
           decoration: InputDecoration(
               icon: Icon(Icons.lock_outline),
               hintText: 'Enter your new password',
-              labelText: 'New password'
-          ),
+              labelText: 'New password'),
         ),
         TextFormField(
           controller: _confirmationCodeController,
@@ -234,8 +228,7 @@ class _PasswordResetPageState extends State<PasswordResetPage> {
           decoration: InputDecoration(
               icon: Icon(Icons.check_outlined),
               hintText: 'Enter confirmation code',
-              labelText: 'Confirmation code'
-          ),
+              labelText: 'Confirmation code'),
         ),
       ],
     );

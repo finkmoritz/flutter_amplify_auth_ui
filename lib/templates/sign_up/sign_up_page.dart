@@ -22,7 +22,8 @@ class _SignUpPageState extends State<SignUpPage> {
   final TextEditingController _nicknameController = TextEditingController();
   /*+++END requiredAttributes[nickname]+++*/
   /*+++START requiredAttributes[preferred_username]+++*/
-  final TextEditingController _preferredUsernameController = TextEditingController();
+  final TextEditingController _preferredUsernameController =
+      TextEditingController();
   /*+++END requiredAttributes[preferred_username]+++*/
   /*+++START requiredAttributes[name]+++*/
   final TextEditingController _nameController = TextEditingController();
@@ -49,14 +50,20 @@ class _SignUpPageState extends State<SignUpPage> {
   final TextEditingController _websiteController = TextEditingController();
   /*+++END requiredAttributes[website]+++*/
   /*+++START requiredAttributes[address]+++*/
-  final TextEditingController _addressStreetController = TextEditingController();
-  final TextEditingController _addressLocalityController = TextEditingController();
-  final TextEditingController _addressRegionController = TextEditingController();
-  final TextEditingController _addressPostalCodeController = TextEditingController();
-  final TextEditingController _addressCountryController = TextEditingController();
+  final TextEditingController _addressStreetController =
+      TextEditingController();
+  final TextEditingController _addressLocalityController =
+      TextEditingController();
+  final TextEditingController _addressRegionController =
+      TextEditingController();
+  final TextEditingController _addressPostalCodeController =
+      TextEditingController();
+  final TextEditingController _addressCountryController =
+      TextEditingController();
   /*+++END requiredAttributes[address]+++*/
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _confirmationCodeController = TextEditingController();
+  final TextEditingController _confirmationCodeController =
+      TextEditingController();
 
   /*+++START requiredAttributes[gender]+++*/
   String _gender = 'other';
@@ -233,9 +240,9 @@ class _SignUpPageState extends State<SignUpPage> {
           controller: _emailController,
           keyboardType: TextInputType.emailAddress,
           decoration: InputDecoration(
-              icon: Icon(Icons.mail_outline),
-              hintText: 'Enter your email address',
-              labelText: 'Email address',
+            icon: Icon(Icons.mail_outline),
+            hintText: 'Enter your email address',
+            labelText: 'Email address',
           ),
         ),
         /*+++END requiredAttributes[email]+++*/
@@ -254,9 +261,9 @@ class _SignUpPageState extends State<SignUpPage> {
         TextFormField(
           controller: _usernameController,
           decoration: InputDecoration(
-              icon: Icon(Icons.person_outline),
-              hintText: 'Choose your username',
-              labelText: 'Username',
+            icon: Icon(Icons.person_outline),
+            hintText: 'Choose your username',
+            labelText: 'Username',
           ),
         ),
         /*+++END usernameAttributes[username]+++*/
@@ -264,18 +271,18 @@ class _SignUpPageState extends State<SignUpPage> {
           controller: _passwordController,
           obscureText: true,
           decoration: InputDecoration(
-              icon: Icon(Icons.lock_outline),
-              hintText: 'Choose your password',
-              labelText: 'Password',
+            icon: Icon(Icons.lock_outline),
+            hintText: 'Choose your password',
+            labelText: 'Password',
           ),
         ),
         /*+++START requiredAttributes[nickname]+++*/
         TextFormField(
           controller: _nicknameController,
           decoration: InputDecoration(
-              icon: Icon(Icons.person_outline),
-              hintText: 'Enter your nickname',
-              labelText: 'Nickname',
+            icon: Icon(Icons.person_outline),
+            hintText: 'Enter your nickname',
+            labelText: 'Nickname',
           ),
         ),
         /*+++END requiredAttributes[nickname]+++*/
@@ -366,13 +373,14 @@ class _SignUpPageState extends State<SignUpPage> {
               fieldLabelText: 'Date of Birth',
               initialDate: DateTime.now(),
               currentDate: _birthdateController.text.isEmpty
-                ? null
-                : DateTime.parse(_birthdateController.text),
+                  ? null
+                  : DateTime.parse(_birthdateController.text),
               firstDate: DateTime(1900),
               lastDate: DateTime.now(),
             ).then((date) {
-              if(date != null) {
-                _birthdateController.text = date.toIso8601String().substring(0, 10);
+              if (date != null) {
+                _birthdateController.text =
+                    date.toIso8601String().substring(0, 10);
               }
             });
           },
@@ -469,8 +477,7 @@ class _SignUpPageState extends State<SignUpPage> {
           decoration: InputDecoration(
               icon: Icon(Icons.person_outline),
               hintText: 'Enter your username',
-              labelText: 'Username'
-          ),
+              labelText: 'Username'),
         ),
         /*+++END usernameAttributes[username]+++*/
         /*+++START usernameAttributes[email]+++*/
@@ -501,8 +508,7 @@ class _SignUpPageState extends State<SignUpPage> {
           decoration: InputDecoration(
               icon: Icon(Icons.check_outlined),
               hintText: 'Enter your confirmation code',
-              labelText: 'Confirmation code'
-          ),
+              labelText: 'Confirmation code'),
         ),
       ],
     );
@@ -522,59 +528,62 @@ class _SignUpPageState extends State<SignUpPage> {
         +++END usernameAttributes[phone_number]+++*/
         password: _passwordController.text.trim(),
         options: CognitoSignUpOptions(
-            userAttributes: Map<String, String>.from({
-              /*+++START requiredAttributes[email]+++*/
-              'email': _emailController.text.trim(),
-              /*+++END requiredAttributes[email]+++*/
-              /*+++START requiredAttributes[phone_number]+++*/
-              'phone_number': _phoneNumberController.text.trim(),
-              /*+++END requiredAttributes[phone_number]+++*/
-              /*+++START requiredAttributes[nickname]+++*/
-              'nickname': _nicknameController.text.trim(),
-              /*+++END requiredAttributes[nickname]+++*/
-              /*+++START requiredAttributes[preferred_username]+++*/
-              'preferred_username': _preferredUsernameController.text.trim(),
-              /*+++END requiredAttributes[preferred_username]+++*/
-              /*+++START requiredAttributes[name]+++*/
-              'name': _nameController.text.trim(),
-              /*+++END requiredAttributes[name]+++*/
-              /*+++START requiredAttributes[given_name]+++*/
-              'given_name': _givenNameController.text.trim(),
-              /*+++END requiredAttributes[given_name]+++*/
-              /*+++START requiredAttributes[middle_name]+++*/
-              'middle_name': _middleNameController.text.trim(),
-              /*+++END requiredAttributes[middle_name]+++*/
-              /*+++START requiredAttributes[family_name]+++*/
-              'family_name': _familyNameController.text.trim(),
-              /*+++END requiredAttributes[family_name]+++*/
-              /*+++START requiredAttributes[gender]+++*/
-              'gender': _gender,
-              /*+++END requiredAttributes[gender]+++*/
-              /*+++START requiredAttributes[birthdate]+++*/
-              'birthdate': DateTime.parse(_birthdateController.text).toIso8601String().substring(0, 10),
-              /*+++END requiredAttributes[birthdate]+++*/
-              /*+++START requiredAttributes[picture]+++*/
-              'picture': _pictureController.text.trim(),
-              /*+++END requiredAttributes[picture]+++*/
-              /*+++START requiredAttributes[profile]+++*/
-              'profile': _profileController.text.trim(),
-              /*+++END requiredAttributes[profile]+++*/
-              /*+++START requiredAttributes[website]+++*/
-              'website': _websiteController.text.trim(),
-              /*+++END requiredAttributes[website]+++*/
-              /*+++START requiredAttributes[address]+++*/
-              'address': '''{
+          userAttributes: Map<String, String>.from({
+            /*+++START requiredAttributes[email]+++*/
+            'email': _emailController.text.trim(),
+            /*+++END requiredAttributes[email]+++*/
+            /*+++START requiredAttributes[phone_number]+++*/
+            'phone_number': _phoneNumberController.text.trim(),
+            /*+++END requiredAttributes[phone_number]+++*/
+            /*+++START requiredAttributes[nickname]+++*/
+            'nickname': _nicknameController.text.trim(),
+            /*+++END requiredAttributes[nickname]+++*/
+            /*+++START requiredAttributes[preferred_username]+++*/
+            'preferred_username': _preferredUsernameController.text.trim(),
+            /*+++END requiredAttributes[preferred_username]+++*/
+            /*+++START requiredAttributes[name]+++*/
+            'name': _nameController.text.trim(),
+            /*+++END requiredAttributes[name]+++*/
+            /*+++START requiredAttributes[given_name]+++*/
+            'given_name': _givenNameController.text.trim(),
+            /*+++END requiredAttributes[given_name]+++*/
+            /*+++START requiredAttributes[middle_name]+++*/
+            'middle_name': _middleNameController.text.trim(),
+            /*+++END requiredAttributes[middle_name]+++*/
+            /*+++START requiredAttributes[family_name]+++*/
+            'family_name': _familyNameController.text.trim(),
+            /*+++END requiredAttributes[family_name]+++*/
+            /*+++START requiredAttributes[gender]+++*/
+            'gender': _gender,
+            /*+++END requiredAttributes[gender]+++*/
+            /*+++START requiredAttributes[birthdate]+++*/
+            'birthdate': DateTime.parse(_birthdateController.text)
+                .toIso8601String()
+                .substring(0, 10),
+            /*+++END requiredAttributes[birthdate]+++*/
+            /*+++START requiredAttributes[picture]+++*/
+            'picture': _pictureController.text.trim(),
+            /*+++END requiredAttributes[picture]+++*/
+            /*+++START requiredAttributes[profile]+++*/
+            'profile': _profileController.text.trim(),
+            /*+++END requiredAttributes[profile]+++*/
+            /*+++START requiredAttributes[website]+++*/
+            'website': _websiteController.text.trim(),
+            /*+++END requiredAttributes[website]+++*/
+            /*+++START requiredAttributes[address]+++*/
+            'address': '''{
                 'street_address': ${_addressStreetController.text.trim()},
                 'locality': ${_addressLocalityController.text.trim()},
                 'region': ${_addressRegionController.text.trim()},
                 'postal_code': ${_addressPostalCodeController.text.trim()},
                 'country': ${_addressCountryController.text.trim()}
               }''',
-              /*+++END requiredAttributes[address]+++*/
-              /*+++START requiredAttributes[updated_at]+++*/
-              'updated_at': (DateTime.now().millisecondsSinceEpoch * 1000).toString(),
-              /*+++END requiredAttributes[updated_at]+++*/
-            }),
+            /*+++END requiredAttributes[address]+++*/
+            /*+++START requiredAttributes[updated_at]+++*/
+            'updated_at':
+                (DateTime.now().millisecondsSinceEpoch * 1000).toString(),
+            /*+++END requiredAttributes[updated_at]+++*/
+          }),
         ),
       );
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
