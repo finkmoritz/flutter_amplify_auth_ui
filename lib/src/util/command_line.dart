@@ -11,7 +11,7 @@ class CommandLine {
 
   static void printMessage(String s, {String? color}) {
     s = _prepend(s, 'MSG');
-    if(color == null) {
+    if (color == null) {
       print(s);
     } else {
       print('$color$s$RESET');
@@ -41,9 +41,9 @@ class CommandLine {
   static void printFancy(String s) {
     s = _prepend(s, 'MSG');
     var rand = Random();
-    for(var i=s.length-1; i>=0; --i) {
+    for (var i = s.length - 1; i >= 0; --i) {
       var r = rand.nextInt(6) + 1;
-      s = '${s.substring(0,i)}\x1B[3${r}m${s.substring(i)}';
+      s = '${s.substring(0, i)}\x1B[3${r}m${s.substring(i)}';
     }
     print('$s$RESET');
   }
@@ -54,16 +54,15 @@ class CommandLine {
     printFancy('###############################');
     printMessage('');
 
-    printMessage('Generate Flutter widgets from your AWS Amplify CLI configuration.\n');
+    printMessage(
+        'Generate Flutter widgets from your AWS Amplify CLI configuration.\n');
 
     printMessage('Author: https://github.com/finkmoritz\n');
   }
 
   static String? readArg(List<String> args, String key) {
-    String? value = args.firstWhere(
-        (element) => element.startsWith('$key='),
-        orElse: () => ''
-    );
+    String? value = args.firstWhere((element) => element.startsWith('$key='),
+        orElse: () => '');
     return value.isEmpty ? null : value.replaceAll('$key=', '');
   }
 

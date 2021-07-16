@@ -63,8 +63,7 @@ class _SignInPageState extends State<SignInPage> {
                   decoration: InputDecoration(
                       icon: Icon(Icons.person_outline),
                       hintText: 'Enter your username',
-                      labelText: 'Username'
-                  ),
+                      labelText: 'Username'),
                 ),
                 /*+++END usernameAttributes[username]+++*/
                 /*+++START usernameAttributes[email]+++*/
@@ -74,8 +73,7 @@ class _SignInPageState extends State<SignInPage> {
                   decoration: InputDecoration(
                       icon: Icon(Icons.mail_outline),
                       hintText: 'Enter your email address',
-                      labelText: 'Email address'
-                  ),
+                      labelText: 'Email address'),
                 ),
                 /*+++END usernameAttributes[email]+++*/
                 /*+++START usernameAttributes[phone_number]+++*/
@@ -85,8 +83,7 @@ class _SignInPageState extends State<SignInPage> {
                   decoration: InputDecoration(
                       icon: Icon(Icons.phone_outlined),
                       hintText: 'Enter your phone number',
-                      labelText: 'Phone number'
-                  ),
+                      labelText: 'Phone number'),
                 ),
                 /*+++END usernameAttributes[phone_number]+++*/
                 TextFormField(
@@ -95,15 +92,15 @@ class _SignInPageState extends State<SignInPage> {
                   decoration: InputDecoration(
                       icon: Icon(Icons.lock_outline),
                       hintText: 'Enter your password',
-                      labelText: 'Password'
-                  ),
+                      labelText: 'Password'),
                 ),
                 ButtonBar(
                   alignment: MainAxisAlignment.center,
                   children: [
                     OutlinedButton(
                       onPressed: () {
-                        Navigator.push(context,
+                        Navigator.push(
+                          context,
                           MaterialPageRoute(builder: (context) => SignUpPage()),
                         );
                       },
@@ -126,8 +123,10 @@ class _SignInPageState extends State<SignInPage> {
                   children: [
                     TextButton(
                       onPressed: () {
-                        Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => PasswordResetPage()),
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => PasswordResetPage()),
                         );
                       },
                       child: Text(
@@ -141,9 +140,11 @@ class _SignInPageState extends State<SignInPage> {
                   children: [
                     /*+++START authProvidersUserPool[Facebook]+++*/
                     ElevatedButton(
-                      onPressed: () => _signInWithWebUI(provider: AuthProvider.facebook),
+                      onPressed: () =>
+                          _signInWithWebUI(provider: AuthProvider.facebook),
                       style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(Color.fromRGBO(66, 103, 178, 1.0)),
+                        backgroundColor: MaterialStateProperty.all(
+                            Color.fromRGBO(66, 103, 178, 1.0)),
                         elevation: MaterialStateProperty.all(4.0),
                       ),
                       child: Text('Sign in with Facebook'),
@@ -151,10 +152,13 @@ class _SignInPageState extends State<SignInPage> {
                     /*+++END authProvidersUserPool[Facebook]+++*/
                     /*+++START authProvidersUserPool[Google]+++*/
                     ElevatedButton(
-                      onPressed: () => _signInWithWebUI(provider: AuthProvider.google),
+                      onPressed: () =>
+                          _signInWithWebUI(provider: AuthProvider.google),
                       style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(Colors.white),
-                        foregroundColor: MaterialStateProperty.all(Colors.blueGrey),
+                        backgroundColor:
+                            MaterialStateProperty.all(Colors.white),
+                        foregroundColor:
+                            MaterialStateProperty.all(Colors.blueGrey),
                         elevation: MaterialStateProperty.all(4.0),
                       ),
                       child: Text('Sign in with Google'),
@@ -162,9 +166,11 @@ class _SignInPageState extends State<SignInPage> {
                     /*+++END authProvidersUserPool[Google]+++*/
                     /*+++START authProvidersUserPool[LoginWithAmazon]+++*/
                     ElevatedButton(
-                      onPressed: () => _signInWithWebUI(provider: AuthProvider.amazon),
+                      onPressed: () =>
+                          _signInWithWebUI(provider: AuthProvider.amazon),
                       style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(Color.fromRGBO(255, 153, 0, 1.0)),
+                        backgroundColor: MaterialStateProperty.all(
+                            Color.fromRGBO(255, 153, 0, 1.0)),
                         elevation: MaterialStateProperty.all(4.0),
                       ),
                       child: Text('Sign in with Amazon'),
@@ -195,7 +201,7 @@ class _SignInPageState extends State<SignInPage> {
         +++END usernameAttributes[phone_number]+++*/
         password: _passwordController.text.trim(),
       );
-      if(result.isSignedIn) {
+      if (result.isSignedIn) {
         widget.onSignIn(context);
       }
     } on AuthException catch (e) {
@@ -207,8 +213,9 @@ class _SignInPageState extends State<SignInPage> {
   /*+++START authProvidersUserPool[any]+++*/
   void _signInWithWebUI({AuthProvider? provider}) async {
     try {
-      SignInResult result = await Amplify.Auth.signInWithWebUI(provider: provider);
-      if(result.isSignedIn) {
+      SignInResult result =
+          await Amplify.Auth.signInWithWebUI(provider: provider);
+      if (result.isSignedIn) {
         widget.onSignIn(context);
       }
     } on AuthException catch (e) {

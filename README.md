@@ -50,12 +50,15 @@ Flutter plugin that automatically generates authentication widget templates base
     - email
     - phone number
 
+### PasswordChangePage
+- Change password by providing the old and a new password
+
 ## Install
 
 To use this plugin, add `flutter_amplify_auth_ui` as a `dev_dependency` in your pubspec.yaml:
 ```
 dev_dependencies:
-  flutter_amplify_auth_ui: ^0.1.2
+  flutter_amplify_auth_ui: ^0.1.3
 ```
 
 Run `flutter pub get` to install the plugin.
@@ -175,4 +178,11 @@ The following images display the outcome of a particular Amplify configuration.
 <p float="left">
     <img src="https://github.com/finkmoritz/flutter_amplify_auth_ui/raw/main/example/screenshots/PasswordResetPage_light.png" alt="Preview" height="500px"/>
     <img src="https://github.com/finkmoritz/flutter_amplify_auth_ui/raw/main/example/screenshots/PasswordResetPage_dark.png" alt="Preview" height="500px"/>
+</p>
+
+### PasswordChangePage
+
+<p float="left">
+    <img src="https://github.com/finkmoritz/flutter_amplify_auth_ui/raw/main/example/screenshots/PasswordChangePage_light.png" alt="Preview" height="500px"/>
+    <img src="https://github.com/finkmoritz/flutter_amplify_auth_ui/raw/main/example/screenshots/PasswordChangePage_dark.png" alt="Preview" height="500px"/>
 </p>

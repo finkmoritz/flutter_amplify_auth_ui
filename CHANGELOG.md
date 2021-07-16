@@ -1,3 +1,8 @@
+## 0.1.3
+
+- Add PasswordChangePage
+- Fix code formatting
+
 ## 0.1.2
 
 - Fix PasswordResetPage

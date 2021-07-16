@@ -14,8 +14,8 @@ class AuthConfig {
   static AuthConfig fromJson(dynamic json) {
     return AuthConfig(
       allowUnauthenticatedIdentities: json['allowUnauthenticatedIdentities'],
-      requiredAttributes: _getAsList(json,'requiredAttributes'),
-      usernameAttributes: _getAsList(json,'usernameAttributes'),
+      requiredAttributes: _getAsList(json, 'requiredAttributes'),
+      usernameAttributes: _getAsList(json, 'usernameAttributes'),
       authProvidersUserPool: _getAsList(json, 'authProvidersUserPool'),
     );
   }

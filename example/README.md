@@ -10,3 +10,9 @@ Amplify configuration in the [amplify](amplify) folder.
 ## Usage
 
 `./example.sh`
+
+or
+
+```
+flutter packages pub run flutter_amplify_auth_ui:main --amplifyDir=./example/amplify --targetDir=./example/target
+```
