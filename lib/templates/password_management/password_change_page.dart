@@ -106,8 +106,7 @@ class _PasswordChangePageState extends State<PasswordChangePage> {
           decoration: InputDecoration(
               icon: Icon(Icons.lock_outline),
               hintText: 'Enter your old password',
-              labelText: 'Old password'
-          ),
+              labelText: 'Old password'),
         ),
         TextFormField(
           controller: _newPasswordController,
@@ -115,8 +114,7 @@ class _PasswordChangePageState extends State<PasswordChangePage> {
           decoration: InputDecoration(
               icon: Icon(Icons.lock_outline),
               hintText: 'Enter your new password',
-              labelText: 'New password'
-          ),
+              labelText: 'New password'),
         ),
       ],
     );
