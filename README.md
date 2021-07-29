@@ -16,6 +16,7 @@ Flutter plugin that automatically generates authentication widget templates base
     - Facebook
     - Google
     - Amazon
+- Sign in with multi-factor authentication (SMS)
 
 ### SignUpPage
 - Sign up via password and one of the following (plus confirmation code):

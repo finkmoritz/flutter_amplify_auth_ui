@@ -19,6 +19,12 @@ class FlutterAmplifyAuthUIGenerator {
     CommandLine.printMessage('Generating classes...');
     _generateClassFromTemplate(
       targetDir: targetDir,
+      templateName: 'sign_in/confirmation_code_dialog.dart',
+      templateHandler: null,
+      authConfig: authConfig,
+    );
+    _generateClassFromTemplate(
+      targetDir: targetDir,
       templateName: 'sign_in/sign_in_page.dart',
       templateHandler: SignInPageTemplateHandler(),
       authConfig: authConfig,

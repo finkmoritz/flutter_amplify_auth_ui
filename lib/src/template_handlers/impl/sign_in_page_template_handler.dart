@@ -19,6 +19,7 @@ class SignInPageTemplateHandler extends TemplateHandler {
     _handleUsernameAttributes(template: template, authConfig: authConfig);
     _handleGuestSignIn(template: template, authConfig: authConfig);
     _handleSignInWithWebUI(template: template, authConfig: authConfig);
+    _handleMfa(template: template, authConfig: authConfig);
   }
 
   void _handleUsernameAttributes(
@@ -54,5 +55,11 @@ class SignInPageTemplateHandler extends TemplateHandler {
     if (authConfig.authProvidersUserPool.isEmpty) {
       template.remove(identifier: 'authProvidersUserPool[any]');
     }
+  }
+
+  void _handleMfa(
+      {required Template template, required AuthConfig authConfig}) {
+    var reverseFlag = authConfig.mfaConfiguration == 'ON' ? 'OFF' : 'ON';
+    template.remove(identifier: 'mfaConfiguration[$reverseFlag]');
   }
 }
