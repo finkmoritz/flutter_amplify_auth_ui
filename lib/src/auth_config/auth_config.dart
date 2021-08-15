@@ -2,13 +2,17 @@ class AuthConfig {
   final bool allowUnauthenticatedIdentities;
   final List<String> requiredAttributes;
   final List<String> usernameAttributes;
-  final List<String> authProvidersUserPool;
+  final List<String> authProviders;
+  final String mfaConfiguration;
+  final List<String> mfaTypes;
 
   const AuthConfig({
     required this.allowUnauthenticatedIdentities,
     required this.requiredAttributes,
     required this.usernameAttributes,
-    required this.authProvidersUserPool,
+    required this.authProviders,
+    required this.mfaConfiguration,
+    required this.mfaTypes,
   });
 
   static AuthConfig fromJson(dynamic json) {
@@ -16,7 +20,9 @@ class AuthConfig {
       allowUnauthenticatedIdentities: json['allowUnauthenticatedIdentities'],
       requiredAttributes: _getAsList(json, 'requiredAttributes'),
       usernameAttributes: _getAsList(json, 'usernameAttributes'),
-      authProvidersUserPool: _getAsList(json, 'authProvidersUserPool'),
+      authProviders: _getAsList(json, 'authProviders'),
+      mfaConfiguration: json['mfaConfiguration'],
+      mfaTypes: _getAsList(json, 'mfaTypes'),
     );
   }
 
@@ -30,7 +36,9 @@ class AuthConfig {
     "allowUnauthenticatedIdentities": $allowUnauthenticatedIdentities,
     "requiredAttributes": $requiredAttributes,
     "usernameAttributes": $usernameAttributes,
-    "authProvidersUserPool": $authProvidersUserPool,
+    "authProviders": $authProviders,
+    "mfaConfiguration": $mfaConfiguration,
+    "mfaTypes": $mfaTypes,
     ''';
   }
 }

@@ -1,6 +1,6 @@
 name: flutter_amplify_auth_ui
 description: Flutter plugin that automatically generates authentication widget templates based on your Amplify CLI Authentication configuration.
-version: 0.1.3
+version: 0.1.4
 homepage: https://github.com/finkmoritz/flutter_amplify_auth_ui
 repository: https://github.com/finkmoritz/flutter_amplify_auth_ui
 issue_tracker: https://github.com/finkmoritz/flutter_amplify_auth_ui/issues

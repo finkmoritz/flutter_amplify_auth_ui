@@ -34,8 +34,13 @@ class SignUpPageTemplateHandler extends TemplateHandler {
 
   void _handleRequiredAttributes(
       {required Template template, required AuthConfig authConfig}) {
+    var requiredAttributes = authConfig.requiredAttributes;
+    if (authConfig.mfaConfiguration == 'ON' &&
+        authConfig.mfaTypes.contains('SMS Text Message')) {
+      requiredAttributes.add('phone_number');
+    }
     configurableRequiredAttributes.forEach((attribute) {
-      if (!authConfig.requiredAttributes.contains(attribute)) {
+      if (!requiredAttributes.contains(attribute)) {
         template.remove(identifier: 'requiredAttributes[$attribute]');
       }
     });
