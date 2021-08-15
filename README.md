@@ -2,7 +2,7 @@
 
 Flutter plugin that automatically generates authentication widget templates based on your Amplify CLI Authentication configuration.
 
-<img src="https://github.com/finkmoritz/flutter_amplify_auth_ui/raw/main/example/screenshots/SignInPage_light.png" alt="Preview" height="500px"/>
+<img src="https://github.com/finkmoritz/flutter_amplify_auth_ui/raw/feature/mfa/example/screenshots/Demo.gif" alt="Demo" height="500px"/>
 
 ## Features
 
