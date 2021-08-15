@@ -8,9 +8,9 @@ class SignInPageTemplateHandler extends TemplateHandler {
     'phone_number',
   ];
   static const List<String> configurableAuthProviders = [
-    'Facebook',
-    'Google',
-    'LoginWithAmazon',
+    'graph.facebook.com',
+    'accounts.google.com',
+    'www.amazon.com',
   ];
 
   @override
@@ -19,6 +19,7 @@ class SignInPageTemplateHandler extends TemplateHandler {
     _handleUsernameAttributes(template: template, authConfig: authConfig);
     _handleGuestSignIn(template: template, authConfig: authConfig);
     _handleSignInWithWebUI(template: template, authConfig: authConfig);
+    _handleMfa(template: template, authConfig: authConfig);
   }
 
   void _handleUsernameAttributes(
@@ -47,12 +48,18 @@ class SignInPageTemplateHandler extends TemplateHandler {
   void _handleSignInWithWebUI(
       {required Template template, required AuthConfig authConfig}) {
     configurableAuthProviders.forEach((provider) {
-      if (!authConfig.authProvidersUserPool.contains(provider)) {
+      if (!authConfig.authProviders.contains(provider)) {
         template.remove(identifier: 'authProvidersUserPool[$provider]');
       }
     });
-    if (authConfig.authProvidersUserPool.isEmpty) {
+    if (authConfig.authProviders.isEmpty) {
       template.remove(identifier: 'authProvidersUserPool[any]');
     }
+  }
+
+  void _handleMfa(
+      {required Template template, required AuthConfig authConfig}) {
+    var reverseFlag = authConfig.mfaConfiguration == 'ON' ? 'OFF' : 'ON';
+    template.remove(identifier: 'mfaConfiguration[$reverseFlag]');
   }
 }

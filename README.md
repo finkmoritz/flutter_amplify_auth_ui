@@ -2,7 +2,7 @@
 
 Flutter plugin that automatically generates authentication widget templates based on your Amplify CLI Authentication configuration.
 
-<img src="https://github.com/finkmoritz/flutter_amplify_auth_ui/raw/main/example/screenshots/SignInPage_light.png" alt="Preview" height="500px"/>
+<img src="https://github.com/finkmoritz/flutter_amplify_auth_ui/raw/main/example/screenshots/Demo.gif" alt="Demo" height="500px"/>
 
 ## Features
 
@@ -16,6 +16,7 @@ Flutter plugin that automatically generates authentication widget templates base
     - Facebook
     - Google
     - Amazon
+- Sign in with multi-factor authentication (SMS)
 
 ### SignUpPage
 - Sign up via password and one of the following (plus confirmation code):

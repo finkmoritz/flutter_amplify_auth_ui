@@ -3,6 +3,7 @@ import 'package:amplify_flutter/amplify.dart';
 import 'package:flutter/material.dart';
 import '../password_management/password_reset_page.dart';
 import '../sign_up/sign_up_page.dart';
+import 'confirmation_code_dialog.dart';
 
 class SignInPage extends StatefulWidget {
   final void Function(BuildContext) onSignIn;
@@ -138,7 +139,7 @@ class _SignInPageState extends State<SignInPage> {
                 ButtonBar(
                   alignment: MainAxisAlignment.center,
                   children: [
-                    /*+++START authProvidersUserPool[Facebook]+++*/
+                    /*+++START authProvidersUserPool[graph.facebook.com]+++*/
                     ElevatedButton(
                       onPressed: () =>
                           _signInWithWebUI(provider: AuthProvider.facebook),
@@ -149,8 +150,8 @@ class _SignInPageState extends State<SignInPage> {
                       ),
                       child: Text('Sign in with Facebook'),
                     ),
-                    /*+++END authProvidersUserPool[Facebook]+++*/
-                    /*+++START authProvidersUserPool[Google]+++*/
+                    /*+++END authProvidersUserPool[graph.facebook.com]+++*/
+                    /*+++START authProvidersUserPool[accounts.google.com]+++*/
                     ElevatedButton(
                       onPressed: () =>
                           _signInWithWebUI(provider: AuthProvider.google),
@@ -163,8 +164,8 @@ class _SignInPageState extends State<SignInPage> {
                       ),
                       child: Text('Sign in with Google'),
                     ),
-                    /*+++END authProvidersUserPool[Google]+++*/
-                    /*+++START authProvidersUserPool[LoginWithAmazon]+++*/
+                    /*+++END authProvidersUserPool[accounts.google.com]+++*/
+                    /*+++START authProvidersUserPool[www.amazon.com]+++*/
                     ElevatedButton(
                       onPressed: () =>
                           _signInWithWebUI(provider: AuthProvider.amazon),
@@ -175,7 +176,7 @@ class _SignInPageState extends State<SignInPage> {
                       ),
                       child: Text('Sign in with Amazon'),
                     ),
-                    /*+++END authProvidersUserPool[LoginWithAmazon]+++*/
+                    /*+++END authProvidersUserPool[www.amazon.com]+++*/
                   ],
                 ),
               ],
@@ -189,7 +190,7 @@ class _SignInPageState extends State<SignInPage> {
   void _signIn() async {
     try {
       await Amplify.Auth.signOut();
-      SignInResult result = await Amplify.Auth.signIn(
+      await Amplify.Auth.signIn(
         /*+++START usernameAttributes[username]+++*/
         username: _usernameController.text.trim(),
         /*+++END usernameAttributes[username]+++*/
@@ -201,9 +202,17 @@ class _SignInPageState extends State<SignInPage> {
         +++END usernameAttributes[phone_number]+++*/
         password: _passwordController.text.trim(),
       );
-      if (result.isSignedIn) {
-        widget.onSignIn(context);
-      }
+      /*+++START mfaConfiguration[OFF]+++*/
+      widget.onSignIn(context);
+      /*+++END mfaConfiguration[OFF]+++*/
+      /*+++START mfaConfiguration[ON]+++*/
+      await showDialog(
+          context: context,
+          barrierDismissible: false,
+          builder: (BuildContext context) {
+            return ConfirmationCodeDialog(onSignIn: widget.onSignIn);
+          });
+      /*+++END mfaConfiguration[ON]+++*/
     } on AuthException catch (e) {
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text(e.message)));
