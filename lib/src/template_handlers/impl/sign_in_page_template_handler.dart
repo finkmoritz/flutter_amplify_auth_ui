@@ -8,9 +8,9 @@ class SignInPageTemplateHandler extends TemplateHandler {
     'phone_number',
   ];
   static const List<String> configurableAuthProviders = [
-    'Facebook',
-    'Google',
-    'LoginWithAmazon',
+    'graph.facebook.com',
+    'accounts.google.com',
+    'www.amazon.com',
   ];
 
   @override
@@ -48,11 +48,11 @@ class SignInPageTemplateHandler extends TemplateHandler {
   void _handleSignInWithWebUI(
       {required Template template, required AuthConfig authConfig}) {
     configurableAuthProviders.forEach((provider) {
-      if (!authConfig.authProvidersUserPool.contains(provider)) {
+      if (!authConfig.authProviders.contains(provider)) {
         template.remove(identifier: 'authProvidersUserPool[$provider]');
       }
     });
-    if (authConfig.authProvidersUserPool.isEmpty) {
+    if (authConfig.authProviders.isEmpty) {
       template.remove(identifier: 'authProvidersUserPool[any]');
     }
   }

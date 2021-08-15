@@ -139,7 +139,7 @@ class _SignInPageState extends State<SignInPage> {
                 ButtonBar(
                   alignment: MainAxisAlignment.center,
                   children: [
-                    /*+++START authProvidersUserPool[Facebook]+++*/
+                    /*+++START authProvidersUserPool[graph.facebook.com]+++*/
                     ElevatedButton(
                       onPressed: () =>
                           _signInWithWebUI(provider: AuthProvider.facebook),
@@ -150,8 +150,8 @@ class _SignInPageState extends State<SignInPage> {
                       ),
                       child: Text('Sign in with Facebook'),
                     ),
-                    /*+++END authProvidersUserPool[Facebook]+++*/
-                    /*+++START authProvidersUserPool[Google]+++*/
+                    /*+++END authProvidersUserPool[graph.facebook.com]+++*/
+                    /*+++START authProvidersUserPool[accounts.google.com]+++*/
                     ElevatedButton(
                       onPressed: () =>
                           _signInWithWebUI(provider: AuthProvider.google),
@@ -164,8 +164,8 @@ class _SignInPageState extends State<SignInPage> {
                       ),
                       child: Text('Sign in with Google'),
                     ),
-                    /*+++END authProvidersUserPool[Google]+++*/
-                    /*+++START authProvidersUserPool[LoginWithAmazon]+++*/
+                    /*+++END authProvidersUserPool[accounts.google.com]+++*/
+                    /*+++START authProvidersUserPool[www.amazon.com]+++*/
                     ElevatedButton(
                       onPressed: () =>
                           _signInWithWebUI(provider: AuthProvider.amazon),
@@ -176,7 +176,7 @@ class _SignInPageState extends State<SignInPage> {
                       ),
                       child: Text('Sign in with Amazon'),
                     ),
-                    /*+++END authProvidersUserPool[LoginWithAmazon]+++*/
+                    /*+++END authProvidersUserPool[www.amazon.com]+++*/
                   ],
                 ),
               ],
