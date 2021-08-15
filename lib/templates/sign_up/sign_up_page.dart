@@ -586,9 +586,6 @@ class _SignUpPageState extends State<SignUpPage> {
           }),
         ),
       );
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text('Successfully signed up'),
-      ));
       setState(() {
         _stepIndex = 1;
       });
