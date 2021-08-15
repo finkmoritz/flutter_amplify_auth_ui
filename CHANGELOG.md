@@ -1,4 +1,9 @@
-## 0.1.3
+## 0.1.4 (2021-08-15)
+
+- Add multi-factor authentication
+- Fix third party provider support
+
+## 0.1.3 (2021-07-16)
 
 - Add PasswordChangePage
 - Fix code formatting
