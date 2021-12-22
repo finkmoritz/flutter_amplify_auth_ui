@@ -181,15 +181,14 @@ class _SignUpPageState extends State<SignUpPage> {
                 state: _stepIndex == 2 ? StepState.complete : StepState.indexed,
               ),
             ],
-            controlsBuilder: (BuildContext context,
-                {VoidCallback? onStepContinue, VoidCallback? onStepCancel}) {
+            controlsBuilder: (BuildContext context, ControlsDetails details) {
               switch (_stepIndex) {
                 case 0:
                   return Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       TextButton(
-                        onPressed: onStepContinue,
+                        onPressed: details.onStepContinue,
                         child: const Text('Skip'),
                       ),
                       ElevatedButton(
@@ -203,7 +202,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       TextButton(
-                        onPressed: onStepCancel,
+                        onPressed: details.onStepCancel,
                         child: const Text('Back'),
                       ),
                       TextButton(

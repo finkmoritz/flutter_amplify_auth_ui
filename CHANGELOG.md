@@ -1,3 +1,8 @@
+## 0.1.5 (2021-12-22)
+
+- Upgrade to flutter '>=2.8.0' (including fix for *Stepper#controlsBuilder*)
+- Enhance readme documentation (root and example)
+
 ## 0.1.4 (2021-08-15)
 
 - Add multi-factor authentication

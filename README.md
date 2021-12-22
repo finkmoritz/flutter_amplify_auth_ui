@@ -4,6 +4,8 @@ Flutter plugin that automatically generates authentication widget templates base
 
 <img src="https://github.com/finkmoritz/flutter_amplify_auth_ui/raw/main/example/screenshots/Demo.gif" alt="Demo" height="500px"/>
 
+---
+
 ## Features
 
 ### SignInPage
@@ -54,21 +56,25 @@ Flutter plugin that automatically generates authentication widget templates base
 ### PasswordChangePage
 - Change password by providing the old and a new password
 
+---
+
+## Prerequisites
+
+If you have not already done so, follow the
+[official Amplify documentation](https://docs.amplify.aws/start/q/integration/flutter)
+in order to integrate [Amplify](https://docs.amplify.aws/start/q/integration/flutter)
+with [Authentication](https://docs.amplify.aws/lib/auth/getting-started/q/platform/flutter)
+into your project.
+
 ## Install
 
 To use this plugin, add `flutter_amplify_auth_ui` as a `dev_dependency` in your pubspec.yaml:
 ```
 dev_dependencies:
-  flutter_amplify_auth_ui: ^0.1.4
+  flutter_amplify_auth_ui: ^0.1.5
 ```
 
 Run `flutter pub get` to install the plugin.
-
-If you have not already done so, follow the 
-[official Amplify documentation](https://docs.amplify.aws/start/q/integration/flutter)
-in order to integrate [Amplify](https://docs.amplify.aws/start/q/integration/flutter)
-with [Authentication](https://docs.amplify.aws/lib/auth/getting-started/q/platform/flutter)
-into your project.
 
 ## Generate Authentication Widgets
 
@@ -152,6 +158,8 @@ class _MyAppState extends State<MyApp> {
 }
 ```
 
+---
+
 ## Showroom
 
 The following images display the outcome of a particular Amplify configuration.
@@ -187,3 +195,9 @@ The following images display the outcome of a particular Amplify configuration.
     <img src="https://github.com/finkmoritz/flutter_amplify_auth_ui/raw/main/example/screenshots/PasswordChangePage_light.png" alt="Preview" height="500px"/>
     <img src="https://github.com/finkmoritz/flutter_amplify_auth_ui/raw/main/example/screenshots/PasswordChangePage_dark.png" alt="Preview" height="500px"/>
 </p>
+
+---
+
+## Support
+
+If you like this project, please support by starring the [Github repository](https://github.com/finkmoritz/flutter_amplify_auth_ui).
