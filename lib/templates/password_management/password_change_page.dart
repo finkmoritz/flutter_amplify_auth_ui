@@ -71,8 +71,7 @@ class _PasswordChangePageState extends State<PasswordChangePage> {
                 state: _stepIndex == 1 ? StepState.complete : StepState.indexed,
               ),
             ],
-            controlsBuilder: (BuildContext context,
-                {VoidCallback? onStepContinue, VoidCallback? onStepCancel}) {
+            controlsBuilder: (BuildContext context, ControlsDetails details) {
               switch (_stepIndex) {
                 case 0:
                   return Row(
