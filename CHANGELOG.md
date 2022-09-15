@@ -1,3 +1,8 @@
+## 0.1.6 (2022-09-15)
+
+- Fix imports in templates
+- Use CognitoUserAttributeKey attributes for sign up
+
 ## 0.1.5 (2021-12-22)
 
 - Upgrade to flutter '>=2.8.0' (including fix for *Stepper#controlsBuilder*)

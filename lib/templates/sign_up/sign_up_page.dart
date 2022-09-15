@@ -1,7 +1,6 @@
 import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
-import 'package:amplify_flutter/amplify.dart';
+import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class SignUpPage extends StatefulWidget {
   @override
@@ -527,50 +526,50 @@ class _SignUpPageState extends State<SignUpPage> {
         +++END usernameAttributes[phone_number]+++*/
         password: _passwordController.text.trim(),
         options: CognitoSignUpOptions(
-          userAttributes: Map<String, String>.from({
+          userAttributes: Map<CognitoUserAttributeKey, String>.from({
             /*+++START requiredAttributes[email]+++*/
-            'email': _emailController.text.trim(),
+            CognitoUserAttributeKey.email: _emailController.text.trim(),
             /*+++END requiredAttributes[email]+++*/
             /*+++START requiredAttributes[phone_number]+++*/
-            'phone_number': _phoneNumberController.text.trim(),
+            CognitoUserAttributeKey.phoneNumber: _phoneNumberController.text.trim(),
             /*+++END requiredAttributes[phone_number]+++*/
             /*+++START requiredAttributes[nickname]+++*/
-            'nickname': _nicknameController.text.trim(),
+            CognitoUserAttributeKey.nickname: _nicknameController.text.trim(),
             /*+++END requiredAttributes[nickname]+++*/
             /*+++START requiredAttributes[preferred_username]+++*/
-            'preferred_username': _preferredUsernameController.text.trim(),
+            CognitoUserAttributeKey.preferredUsername: _preferredUsernameController.text.trim(),
             /*+++END requiredAttributes[preferred_username]+++*/
             /*+++START requiredAttributes[name]+++*/
-            'name': _nameController.text.trim(),
+            CognitoUserAttributeKey.name: _nameController.text.trim(),
             /*+++END requiredAttributes[name]+++*/
             /*+++START requiredAttributes[given_name]+++*/
-            'given_name': _givenNameController.text.trim(),
+            CognitoUserAttributeKey.givenName: _givenNameController.text.trim(),
             /*+++END requiredAttributes[given_name]+++*/
             /*+++START requiredAttributes[middle_name]+++*/
-            'middle_name': _middleNameController.text.trim(),
+            CognitoUserAttributeKey.middleName: _middleNameController.text.trim(),
             /*+++END requiredAttributes[middle_name]+++*/
             /*+++START requiredAttributes[family_name]+++*/
-            'family_name': _familyNameController.text.trim(),
+            CognitoUserAttributeKey.familyName: _familyNameController.text.trim(),
             /*+++END requiredAttributes[family_name]+++*/
             /*+++START requiredAttributes[gender]+++*/
-            'gender': _gender,
+            CognitoUserAttributeKey.gender: _gender,
             /*+++END requiredAttributes[gender]+++*/
             /*+++START requiredAttributes[birthdate]+++*/
-            'birthdate': DateTime.parse(_birthdateController.text)
+            CognitoUserAttributeKey.birthdate: DateTime.parse(_birthdateController.text)
                 .toIso8601String()
                 .substring(0, 10),
             /*+++END requiredAttributes[birthdate]+++*/
             /*+++START requiredAttributes[picture]+++*/
-            'picture': _pictureController.text.trim(),
+            CognitoUserAttributeKey.picture: _pictureController.text.trim(),
             /*+++END requiredAttributes[picture]+++*/
             /*+++START requiredAttributes[profile]+++*/
-            'profile': _profileController.text.trim(),
+            CognitoUserAttributeKey.profile: _profileController.text.trim(),
             /*+++END requiredAttributes[profile]+++*/
             /*+++START requiredAttributes[website]+++*/
-            'website': _websiteController.text.trim(),
+            CognitoUserAttributeKey.website: _websiteController.text.trim(),
             /*+++END requiredAttributes[website]+++*/
             /*+++START requiredAttributes[address]+++*/
-            'address': '''{
+            CognitoUserAttributeKey.address: '''{
                 'street_address': ${_addressStreetController.text.trim()},
                 'locality': ${_addressLocalityController.text.trim()},
                 'region': ${_addressRegionController.text.trim()},
@@ -579,7 +578,7 @@ class _SignUpPageState extends State<SignUpPage> {
               }''',
             /*+++END requiredAttributes[address]+++*/
             /*+++START requiredAttributes[updated_at]+++*/
-            'updated_at':
+            CognitoUserAttributeKey.updatedAt:
                 (DateTime.now().millisecondsSinceEpoch * 1000).toString(),
             /*+++END requiredAttributes[updated_at]+++*/
           }),
@@ -618,7 +617,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
   void _confirm() async {
     try {
-      SignUpResult result = await Amplify.Auth.confirmSignUp(
+      var result = await Amplify.Auth.confirmSignUp(
         /*+++START usernameAttributes[username]+++*/
         username: _usernameController.text.trim(),
         /*+++END usernameAttributes[username]+++*/

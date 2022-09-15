@@ -1,5 +1,4 @@
-import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
-import 'package:amplify_flutter/amplify.dart';
+import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:flutter/material.dart';
 
 class PasswordResetPage extends StatefulWidget {
@@ -260,7 +259,7 @@ class _PasswordResetPageState extends State<PasswordResetPage> {
 
   void _confirm() async {
     try {
-      await Amplify.Auth.confirmPassword(
+      await Amplify.Auth.confirmResetPassword(
         /*+++START usernameAttributes[username]+++*/
         username: _usernameController.text.trim(),
         /*+++END usernameAttributes[username]+++*/

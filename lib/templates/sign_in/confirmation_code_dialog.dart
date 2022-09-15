@@ -1,5 +1,4 @@
-import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
-import 'package:amplify_flutter/amplify.dart';
+import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:flutter/material.dart';
 
 class ConfirmationCodeDialog extends StatefulWidget {
@@ -60,7 +59,7 @@ class _ConfirmationCodeDialogState extends State<ConfirmationCodeDialog> {
 
   void _confirm() async {
     try {
-      SignInResult result = await Amplify.Auth.confirmSignIn(
+      var result = await Amplify.Auth.confirmSignIn(
         confirmationValue: _confirmationCodeController.text.trim(),
       );
       if (result.isSignedIn) {
