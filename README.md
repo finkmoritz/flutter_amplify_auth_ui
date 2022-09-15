@@ -71,7 +71,7 @@ into your project.
 To use this plugin, add `flutter_amplify_auth_ui` as a `dev_dependency` in your pubspec.yaml:
 ```
 dev_dependencies:
-  flutter_amplify_auth_ui: ^0.1.5
+  flutter_amplify_auth_ui: ^0.1.6
 ```
 
 Run `flutter pub get` to install the plugin.

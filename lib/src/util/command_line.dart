@@ -51,13 +51,15 @@ class CommandLine {
   static void printHeader() {
     printFancy('###############################');
     printFancy('### Flutter Amplify Auth UI ###');
-    printFancy('###############################');
-    printMessage('');
+    printFancy('###############################\n');
+
+    printMessage('Package: https://pub.dev/packages/flutter_amplify_auth_ui');
+    printMessage(
+        'GitHub: https://github.com/finkmoritz/flutter_amplify_auth_ui');
+    printMessage('Author: https://github.com/finkmoritz\n');
 
     printMessage(
         'Generate Flutter widgets from your AWS Amplify CLI configuration.\n');
-
-    printMessage('Author: https://github.com/finkmoritz\n');
   }
 
   static String? readArg(List<String> args, String key) {

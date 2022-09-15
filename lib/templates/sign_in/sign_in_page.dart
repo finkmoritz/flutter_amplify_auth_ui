@@ -1,9 +1,10 @@
-import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
-import 'package:amplify_flutter/amplify.dart';
+import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:flutter/material.dart';
 import '../password_management/password_reset_page.dart';
 import '../sign_up/sign_up_page.dart';
+/*+++START mfaConfiguration[ON]+++*/
 import 'confirmation_code_dialog.dart';
+/*+++END mfaConfiguration[ON]+++*/
 
 class SignInPage extends StatefulWidget {
   final void Function(BuildContext) onSignIn;
@@ -222,8 +223,9 @@ class _SignInPageState extends State<SignInPage> {
   /*+++START authProvidersUserPool[any]+++*/
   void _signInWithWebUI({AuthProvider? provider}) async {
     try {
-      SignInResult result =
-          await Amplify.Auth.signInWithWebUI(provider: provider);
+      var result = await Amplify.Auth.signInWithWebUI(
+        provider: provider,
+      );
       if (result.isSignedIn) {
         widget.onSignIn(context);
       }
