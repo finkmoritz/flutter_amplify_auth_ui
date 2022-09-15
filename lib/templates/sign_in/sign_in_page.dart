@@ -223,8 +223,9 @@ class _SignInPageState extends State<SignInPage> {
   /*+++START authProvidersUserPool[any]+++*/
   void _signInWithWebUI({AuthProvider? provider}) async {
     try {
-      var result =
-          await Amplify.Auth.signInWithWebUI(provider: provider);
+      var result = await Amplify.Auth.signInWithWebUI(
+        provider: provider,
+      );
       if (result.isSignedIn) {
         widget.onSignIn(context);
       }

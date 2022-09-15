@@ -531,13 +531,15 @@ class _SignUpPageState extends State<SignUpPage> {
             CognitoUserAttributeKey.email: _emailController.text.trim(),
             /*+++END requiredAttributes[email]+++*/
             /*+++START requiredAttributes[phone_number]+++*/
-            CognitoUserAttributeKey.phoneNumber: _phoneNumberController.text.trim(),
+            CognitoUserAttributeKey.phoneNumber:
+                _phoneNumberController.text.trim(),
             /*+++END requiredAttributes[phone_number]+++*/
             /*+++START requiredAttributes[nickname]+++*/
             CognitoUserAttributeKey.nickname: _nicknameController.text.trim(),
             /*+++END requiredAttributes[nickname]+++*/
             /*+++START requiredAttributes[preferred_username]+++*/
-            CognitoUserAttributeKey.preferredUsername: _preferredUsernameController.text.trim(),
+            CognitoUserAttributeKey.preferredUsername:
+                _preferredUsernameController.text.trim(),
             /*+++END requiredAttributes[preferred_username]+++*/
             /*+++START requiredAttributes[name]+++*/
             CognitoUserAttributeKey.name: _nameController.text.trim(),
@@ -546,18 +548,21 @@ class _SignUpPageState extends State<SignUpPage> {
             CognitoUserAttributeKey.givenName: _givenNameController.text.trim(),
             /*+++END requiredAttributes[given_name]+++*/
             /*+++START requiredAttributes[middle_name]+++*/
-            CognitoUserAttributeKey.middleName: _middleNameController.text.trim(),
+            CognitoUserAttributeKey.middleName:
+                _middleNameController.text.trim(),
             /*+++END requiredAttributes[middle_name]+++*/
             /*+++START requiredAttributes[family_name]+++*/
-            CognitoUserAttributeKey.familyName: _familyNameController.text.trim(),
+            CognitoUserAttributeKey.familyName:
+                _familyNameController.text.trim(),
             /*+++END requiredAttributes[family_name]+++*/
             /*+++START requiredAttributes[gender]+++*/
             CognitoUserAttributeKey.gender: _gender,
             /*+++END requiredAttributes[gender]+++*/
             /*+++START requiredAttributes[birthdate]+++*/
-            CognitoUserAttributeKey.birthdate: DateTime.parse(_birthdateController.text)
-                .toIso8601String()
-                .substring(0, 10),
+            CognitoUserAttributeKey.birthdate:
+                DateTime.parse(_birthdateController.text)
+                    .toIso8601String()
+                    .substring(0, 10),
             /*+++END requiredAttributes[birthdate]+++*/
             /*+++START requiredAttributes[picture]+++*/
             CognitoUserAttributeKey.picture: _pictureController.text.trim(),
