@@ -7,7 +7,7 @@ issue_tracker: https://github.com/finkmoritz/flutter_amplify_auth_ui/issues
 documentation: https://github.com/finkmoritz/flutter_amplify_auth_ui/blob/main/README.md
 
 environment:
-  sdk: ^3.0.0
+  sdk: ">=3.0.0 <4.0.0"
   flutter: '>=3.10.0'
 
 dependencies:
