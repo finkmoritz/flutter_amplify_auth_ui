@@ -20,7 +20,7 @@ class AuthConfig {
       allowUnauthenticatedIdentities: json['allowUnauthenticatedIdentities'],
       requiredAttributes: _getAsList(json, 'requiredAttributes'),
       usernameAttributes: _getAsList(json, 'usernameAttributes'),
-      authProviders: _getAsList(json, 'authProviders'),
+      authProviders: _getAsList(json, 'authProvidersUserPool'),
       mfaConfiguration: json['mfaConfiguration'],
       mfaTypes: _getAsList(json, 'mfaTypes'),
     );
@@ -36,7 +36,7 @@ class AuthConfig {
     "allowUnauthenticatedIdentities": $allowUnauthenticatedIdentities,
     "requiredAttributes": $requiredAttributes,
     "usernameAttributes": $usernameAttributes,
-    "authProviders": $authProviders,
+    "authProvidersUserPool": $authProviders,
     "mfaConfiguration": $mfaConfiguration,
     "mfaTypes": $mfaTypes,
     ''';

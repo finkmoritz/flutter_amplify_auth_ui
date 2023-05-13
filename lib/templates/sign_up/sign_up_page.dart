@@ -1,4 +1,3 @@
-import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
 import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:flutter/material.dart';
 
@@ -525,7 +524,7 @@ class _SignUpPageState extends State<SignUpPage> {
         username: _phoneNumberController.text.trim(),
         +++END usernameAttributes[phone_number]+++*/
         password: _passwordController.text.trim(),
-        options: CognitoSignUpOptions(
+        options: SignUpOptions(
           userAttributes: Map<CognitoUserAttributeKey, String>.from({
             /*+++START requiredAttributes[email]+++*/
             CognitoUserAttributeKey.email: _emailController.text.trim(),
