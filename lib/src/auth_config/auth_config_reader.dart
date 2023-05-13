@@ -25,7 +25,7 @@ class AuthConfigReader {
         return File(file.path);
       }
     }
-    ;
+
     throw FlutterAmplifyAuthUiException('''
     Could not find "parameters.json"!
     Please check if you have already configured Amplify Auth for this project.''');

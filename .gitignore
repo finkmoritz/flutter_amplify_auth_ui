@@ -8,6 +8,8 @@ example/target
 # Files and directories created by pub
 .dart_tool/
 .packages
+.flutter-plugins
+.flutter-plugins-dependencies
 
 # Omit commiting pubspec.lock for library packages:
 # https://dart.dev/guides/libraries/private-files#pubspeclock

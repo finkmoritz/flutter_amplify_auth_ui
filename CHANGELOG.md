@@ -1,4 +1,9 @@
-## 0.1.6 (2022-09-15)
+## 1.1.0 (2023-05-13)
+
+- Use same release version as amplify_flutter package
+- Added support for web platform
+
+- ## 0.1.6 (2022-09-15)
 
 - Fix imports in templates
 - Use CognitoUserAttributeKey attributes for sign up
